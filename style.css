@@ -20,6 +20,7 @@ button {
     cursor: pointer;
     height: 100%;
     padding-top: 15px;
+    position: relative;
 
     display: flex;
 	flex-wrap: wrap;
@@ -78,10 +79,6 @@ button {
     cursor: pointer;
     margin-top: 15px;
     margin-left: 15px;
-}
-
-.main-but:hover {
-    background: lightgray;
 }
 
 .line {
