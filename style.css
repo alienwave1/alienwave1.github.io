@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url(fonts/OpenSans-Light.ttf);
+}
+
+button {
+    text-decoration: none;
+    outline: none;
+    transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
+.input {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.main-input {
+    padding-left: 15px;
+    height: 50px;
+    font-size: 32px;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1.5px;
+}
+
+.main-but {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 1.5px;
+    border-color: lightgray;
+    height: 50px;
+    font-size: 32px;
+    background: #fff;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.main-but:hover {
+    background: lightgray;
+}
+
+#response {
+    font-family: 'Open Sans';
+    font-size: 36px;
+    margin-top: 75px;
+    margin-left: -170px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+}
