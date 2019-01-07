@@ -28,11 +28,19 @@
             fetchApi();
         }
 
-        function loadCookie() {
+        function loadCookie(coks) {
             kinput.value = getCookie('city') ? getCookie('city') : '';
+            console.log(getCookie('city'));
+        }
+
+        function getReq() {
+            if (getCookie('city')) {
+                fetchApi();
+            }
         }
 
         loadCookie();
+        getReq();
 
         function fetchApi() {
             var city = kinput.value;
@@ -56,7 +64,7 @@
 
                         if (data.sys) {
                             textParse = `<div>Country: ${data.sys.country}</div>
-                        <div>City: ${data.name}</div> <div>Weather: ${data.weather[0].main}</div>
+                        </div> <div>Weather: ${data.weather[0].main}</div>
                         <div>Temperature: ${data.main.temp}</div> <div>Wind speed: ${data.wind.speed} m/s</div>`;
 
                             document.getElementById('response').innerHTML = textParse;
