@@ -13,12 +13,18 @@
     <div class="container">
         <div class="input">
             <form onsubmit="mySubmit(event)">
-                <input placeholder="Enter сity" class="main-input" id="city">
-                <button class="main-but" id="getWeatherBut" onclick="fetchApi()">Find</button>
+                <div class="autocomplete">
+                    <input placeholder="Enter сity" class="main-input" id="city" autocomplete="off">
+                    <button class="main-but" id="getWeatherBut" onclick="fetchApi()">Find</button>
+
+                    <div class="line"></div>
+                </div>
             </form>
         </div>
         <div id="response"></div>
     </div>
+
+    <script src="autocomplete.js"></script>
 
     <script>
         var kinput = document.getElementById('city');
@@ -39,8 +45,14 @@
             }
         }
 
+        function searchCity() {
+            var countries = ["Moscow", "Kaliningrad", "Klin", "Kazan", "Ryazan", "Saratov"];
+            autocomplete(document.getElementById("city"), countries);
+        }
+
         loadCookie();
         getReq();
+        searchCity();
 
         function fetchApi() {
             var city = kinput.value;
