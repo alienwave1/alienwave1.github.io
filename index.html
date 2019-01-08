@@ -24,8 +24,6 @@
         <div id="response"></div>
     </div>
 
-    <script src="autocomplete.js"></script>
-
     <script>
         var kinput = document.getElementById('city');
 
@@ -45,14 +43,8 @@
             }
         }
 
-        function searchCity() {
-            var countries = ["Moscow", "Kaliningrad", "Klin", "Kazan", "Ryazan", "Saratov", "Kaluga"];
-            autocomplete(document.getElementById("city"), countries);
-        }
-
         loadCookie();
         getReq();
-        searchCity();
 
         function fetchApi() {
             var city = kinput.value;

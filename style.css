@@ -10,42 +10,7 @@ button {
     -moz-transition: all .2s linear;
     -webkit-transition: all .2s linear;
     -o-transition: all .2s linear;
-
     font-family: 'Open Sans';
-}
-
-.autocomplete-items div {
-    font-family: 'Open Sans';
-    font-size: 30px;
-    cursor: pointer;
-    height: 100%;
-    padding-top: 15px;
-    position: relative;
-
-    display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-    align-items: flex-start;
-}
-  
-  /*when hovering an item:*/
-.autocomplete-items div:hover {
-    background-color: #e9e9e9;
-
-    transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    -o-transition: all .2s linear;
-}
-  
-  /*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-    background-color: #e9e9e9 !important; 
-
-    transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    -o-transition: all .2s linear;
 }
 
 .container {
@@ -79,6 +44,10 @@ button {
     cursor: pointer;
     margin-top: 15px;
     margin-left: 15px;
+}
+
+.main-but:hover {
+    color: grey;
 }
 
 .line {
