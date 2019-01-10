@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input">
+            <form onsubmit="mySubmit(event)">
+                <div class="autocomplete">
+                    <input placeholder="Enter сity" class="main-input" id="city" autocomplete="off">
+                    <button class="main-but" id="getWeatherBut" onclick="fetchApi()">Find</button>
+
+                    <div class="line"></div>
+                </div>
+            </form>
+        </div>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        var kinput = document.getElementById('city');
+
+        function mySubmit(e) {
+            e.preventDefault();
+            fetchApi();
+        }
+
+        function loadCookie() {
+            kinput.value = getCookie('city') ? getCookie('city') : '';
+            console.log(getCookie('city'));
+        }
+
+        function getReq() {
+            if (getCookie('city')) {
+                fetchApi();
+            }
+        }
+
+        loadCookie();
+        getReq();
+
+        function fetchApi() {
+            var city = kinput.value;
+            var key = "&appid=1ffca6db0ea908d8883ff72a55ebaf21";
+            var metric = '&units=metric';
+            var blocknum = city.replace(/^([^0-9]*)$/);
+            var geo = navigator.geolocation;
+
+            setCookie('city', city);
+
+            if (city == 0 || city == blocknum) {
+                return document.getElementById('response').innerHTML = "";
+            }
+
+            else {
+                fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + key + metric)
+                    .then(response => response.json())
+
+                    .then(data => {
+                        var textParse;
+
+                        if (data.sys) {
+                            textParse = `<div>Time request: </div> <div>Country: ${data.sys.country}</div>
+                        </div> <div>Weather: ${data.weather[0].main}</div>
+                        <div>Temperature: ${data.main.temp}&deg;</div> <div>Wind speed: ${data.wind.speed} m/s</div>`;
+
+                            document.getElementById('response').innerHTML = textParse;
+                        }
+
+                        else {
+                            switch (data.cod) {
+                                case '400':
+                                    textParse = `<div>Bad request</div>`;
+
+                                    document.getElementById('response').innerHTML = textParse;
+                                    break;
+
+                                case '404':
+                                    textParse = `<div>Sorry, there is no such city in our database</div>`;
+                                    document.getElementById('response').innerHTML = textParse;
+                                    break;
+
+                                default:
+                                    textParse = `<div>${data.message}</div>`;
+                                    break;
+                            }
+                        }
+                    })
+
+                    .catch(error => {
+                        // const errorStatus = `<div>${error.cod}: ${error.message}</div>`;
+                        // document.getElementById('response').innerHTML = errorStatus;
+                        console.log(data);
+                    });
+            }
+        };
+
+        function getCookie(name) {
+            var matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        function setCookie(name, value, options) {
+            options = options || {};
+
+            var expires = options.expires;
+
+            if (typeof expires == "number" && expires) {
+                var d = new Date();
+                d.setTime(d.getTime() + expires * 1000);
+                expires = options.expires = d;
+            }
+            if (expires && expires.toUTCString) {
+                options.expires = expires.toUTCString();
+            }
+
+            value = encodeURIComponent(value);
+
+            var updatedCookie = name + "=" + value;
+
+            for (var propName in options) {
+                updatedCookie += "; " + propName;
+                var propValue = options[propName];
+                if (propValue !== true) {
+                    updatedCookie += "=" + propValue;
+                }
+            }
+
+            document.cookie = updatedCookie;
+        }
+
+        function stockApi() {
+            var city = document.getElementById('city').value;
+            var key = "1ffca6db0ea908d8883ff72a55ebaf21";
+            var x = new XMLHttpRequest();
+
+            x.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key + '&units=metric', true);
+            x.send();
+
+            x.onreadystatechange = function () {
+                if (x.readyState === 4) {
+                    if (x.status >= 200 && x.status < 400) {
+                        // Success!
+                        var mass = JSON.parse(x.responseText);
+
+                        const textParse = `<div>Country: ${mass.sys.country}</div>
+                        <div>City: ${mass.name}</div> <div>Weather: ${mass.weather[0].main}</div>
+                        <div>Temperature: ${mass.main.temp}</div> <div>Wind speed: ${mass.wind.speed} m/s</div>`;
+
+                        document.getElementById('response').innerHTML = textParse;
+                    }
+
+                    else {
+                        const error = `<div>${x.status}: ${x.statusText}</div>`;
+                        document.getElementById('response').innerHTML = error;
+                    }
+                }
+
+                else return;
+            }
+        };
+    </script>
+</body>
+
+</html>
