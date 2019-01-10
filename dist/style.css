@@ -50,12 +50,17 @@ button {
     color: grey;
 }
 
-.line {
+#line {
     border: solid;
     border-width: 0.5px;
     border-color: #f1f1f1;
     padding: 0px;
     margin: 0px;
+
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
 }
 
 #response {
