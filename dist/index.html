@@ -64,6 +64,7 @@
             var metric = '&units=metric';
             var blocknum = city.replace(/^([^0-9]*)$/);
             var geo = navigator.geolocation;
+            var date = new Date();
 
             setCookie('city', city);
 
@@ -79,7 +80,7 @@
                         var textParse;
 
                         if (data.sys) {
-                            textParse = `<div>Time request: </div> <div>Country: ${data.sys.country}</div>
+                            textParse = `<div>Time request: ${date.getHours()}:${date.getMinutes()} </div> <div>Country: ${data.sys.country}</div>
                         </div> <div>Weather: ${data.weather[0].main}</div>
                         <div>Temperature: ${data.main.temp}&deg;</div> <div>Wind speed: ${data.wind.speed} m/s</div>`;
 
