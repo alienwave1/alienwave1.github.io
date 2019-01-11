@@ -15,7 +15,7 @@
             <form onsubmit="mySubmit(event)">
                 <div class="autocomplete">
                     <input placeholder="Enter сity" class="main-input" id="city" autocomplete="off">
-                    <button class="main-but" id="getWeatherBut" onclick="fetchApi()">Find</button>
+                    <button class="main-but" id="getWeatherBut" onclick="fetchApi()">></button>
 
                     <div id="line"></div>
                 </div>
@@ -80,8 +80,8 @@
                         var textParse;
 
                         if (data.sys) {
-                            textParse = `<div>${date.getHours()}:${date.getMinutes()}</div> <div>${data.sys.country}</div>
-                            </div> <div>${data.weather[0].main}</div>
+                            textParse = `<div>${date.getHours()}:${date.getMinutes()}</div>
+                            <div>${data.weather[0].main}</div>
                             <div>${data.main.temp}&deg;</div> <div>${data.wind.speed} m/s</div>`;
 
                             document.getElementById('response').innerHTML = textParse;
