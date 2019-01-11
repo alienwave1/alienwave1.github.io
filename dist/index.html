@@ -80,9 +80,9 @@
                         var textParse;
 
                         if (data.sys) {
-                            textParse = `<div>${date.getHours()}:${date.getMinutes()} </div> <div>Country: ${data.sys.country}</div>
-                        </div> <div>Weather: ${data.weather[0].main}</div>
-                        <div>Temperature: ${data.main.temp}&deg;</div> <div>Wind speed: ${data.wind.speed} m/s</div>`;
+                            textParse = `<div>${date.getHours()}:${date.getMinutes()}</div> <div>${data.sys.country}</div>
+                            </div> <div>${data.weather[0].main}</div>
+                            <div>${data.main.temp}&deg;</div> <div>${data.wind.speed} m/s</div>`;
 
                             document.getElementById('response').innerHTML = textParse;
                         }
