@@ -21,7 +21,7 @@
                 </div>
             </form>
         </div>
-        <div сlass="response" id="response"></div>
+        <div id="response"></div>
     </div>
 
     <script>
@@ -64,13 +64,10 @@
             var metric = '&units=metric';
             var blocknum = city.replace(/^([^0-9]*)$/);
             var geo = navigator.geolocation;
-            var divresp = document.getElementsByClassName("response");
+            var divresp = document.getElementById("response");
             var date = new Date();
 
             setCookie('city', city);
-
-            console.log(divresp);
-            console.log(document.getElementById('response'));
 
             if (city == 0 || city == blocknum) {
                 return divresp.innerHTML = "";
@@ -82,14 +79,15 @@
 
                     .then(data => {
                         var textParse;
-                        console.log(data);
 
                         if (data.sys) {
+                            console.log(data);
+                            
                             textParse = `<div>${date.getHours()}:${date.getMinutes()}</div>
                             <div>${data.weather[0].main}</div>
                             <div>${data.main.temp}&deg;</div> <div>${data.wind.speed} m/s</div>`;
 
-                            document.getElementById("response").innerHTML = textParse;
+                            divresp.innerHTML = textParse;
                         }
 
                         else {

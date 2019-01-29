@@ -62,7 +62,7 @@ button {
     -o-transition: all .3s linear;
 }
 
-.response {
+#response {
     font-family: 'Open Sans';
     font-size: 36px;
     text-align: center;
