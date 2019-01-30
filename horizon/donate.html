@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Horizon City | Донат</title>
+
+    <style>
+        @font-face {
+            src: url(fonts/roboto.ttf);
+            font-family: "RobotoCondensed";
+        }
+
+        @font-face {
+            src: url(fonts/robotolight.ttf);
+            font-family: "RobotoLight";
+        }
+
+        @font-face {
+            src: url(fonts/gotham.ttf);
+            font-family: "GothamPro";
+        }
+
+        @font-face {
+            src: url(fonts/roboto-regular.ttf);
+            font-family: "RobotoRegular";
+        }
+
+        @font-face {
+            src: url(fonts/segoe.ttf);
+            font-family: "Segoe";
+        }
+
+        html {
+            height: 3250px;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #151515;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        li {
+            list-style-type: none;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 1920px;
+            max-width: 1920px;
+        }
+
+        /* Header */
+
+        .header {
+            background-image: url("imgs/backdonate.png");
+            background-repeat: no-repeat;
+            height: 1080px;
+        }
+
+        .colorup {
+            background-image: url("imgs/blackup.png");
+            background-repeat: no-repeat;
+            background-position: top center;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 3200px;
+            z-index: 1;
+        }
+
+        .color {
+            background: #000;
+            opacity: 0.5;
+            width: auto;
+            height: 1080px;
+            z-index: 2;
+        }
+
+        .elements {
+            background-color: #000;
+            position: absolute;
+            top: 30px;
+            opacity: 0.3;
+            width: 1920px;
+            height: 76px;
+        }
+
+        .elem {
+            position: absolute;
+            height: 76px;
+            width: 1920px;
+            z-index: 2;
+        }
+
+        .elem ul {
+            font-family: "GothamPro";
+            font-size: 30px;
+            padding-left: 50px;
+            padding-left: 0;
+            text-align: center;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: center;
+        }
+
+        .short {
+            width: 209px;
+            height: 80px;
+        }
+
+        .long {
+            width: 326px;
+            height: 76px;
+        }
+
+        .long:hover {
+            background-image: url("imgs/active/long.png");
+        }
+
+        .short:hover {
+            background-image: url("imgs/active/short.png");
+        }
+
+        .elem a {
+            display: block;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        .logo {
+            position: absolute;
+            width: 1920px;
+        }
+
+        .horizonlogo {
+            position: absolute;
+            margin-left: 650px;
+            margin-top: 100px;
+            width: 700px;
+            height: auto;
+            z-index: 1;
+        }
+
+        .server-name {
+            position: absolute;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        .horizon {
+            position: absolute;
+            font-size: 88px;
+            font-family: "RobotoCondensed";
+            font-weight: bold;
+            line-height: 1.2;
+            text-align: center;
+            left: 736px;
+            top: -550px;
+        }
+
+        .city {
+            position: absolute;
+            font-size: 88px;
+            line-height: 1.2;
+            text-align: center;
+            font-family: "RobotoLight";
+            left: 1100px;
+            top: -550px;
+        }
+
+        /* Donate block */
+
+        .mainblock {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .donateplace {
+            position: absolute;
+        }
+
+        .collect {
+            position: absolute;
+            color: #fff;
+            font-family: "RobotoRegular";
+            font-size: 50px;
+            margin-top: 70px;
+            margin-left: 125px;
+            z-index: 11;
+        }
+
+        .login {
+            position: absolute;
+            color: #fff;
+            font-family: "RobotoRegular";
+            font-size: 50px;
+            margin-left: 1000px;
+            margin-top: 250px;
+            z-index: 11;
+        }
+
+        .rubles {
+            position: absolute;
+            color: #fff;
+            font-family: "RobotoRegular";
+            font-size: 50px;
+            margin-top: 400px;
+            margin-left: 790px;
+            z-index: 11;
+        }
+
+        .login-input {
+            position: absolute;
+            margin-left: 1200px;
+            margin-top: 260px;
+            background-color: #151515;
+            font-family: "RobotoLight";
+            font-size: 40px;
+            text-align: center;
+            color: #ff5649;
+            border-style: none;
+            height: 55px;
+            width: 15%;
+            border-radius: 9px;
+            z-index: 11;
+        }
+
+        .rubles-input {
+            position: absolute;
+            margin-left: 1200px;
+            margin-top: 410px;
+            background-color: #151515;
+            font-family: "RobotoLight";
+            font-size: 40px;
+            text-align: center;
+            color: #ff5649;
+            border-style: none;
+            height: 55px;
+            width: 15%;
+            border-radius: 9px;
+            z-index: 11;
+        }
+
+        .result {
+            position: absolute;
+            color: #fff;
+            font-family: "RobotoLight";
+            font-size: 50px;
+            margin-top: 540px;
+            margin-left: 874px;
+            z-index: 11;
+        }
+
+        .course {
+            position: absolute;
+            color: #fff;
+            font-family: "RobotoLight";
+            font-size: 50px;
+            margin-top: 770px;
+            margin-left: 80px;
+            opacity: 0.2;
+            z-index: 11;
+        }
+
+        /* Donate list */
+
+        .donatelist {
+            position: relative;
+            margin-top: 1000px;
+            z-index: 12;
+        }
+
+        .notice {
+            color: #fff;
+            font-family: "RobotoLight";
+            margin-left: 30%;
+            font-size: 50px;
+            z-index: 11;
+        }
+
+        .blocklist {
+            position: absolute;
+            height: 500px;
+            background-color: #fff;
+            z-index: 13;
+        }
+
+        .elementsdonat {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .elementsdonat img {
+            line-height: 0;
+            vertical-align: bottom;
+        }
+
+        /* Footer */
+
+        .footer {
+            position: relative;
+        }
+
+        .gotohome {
+            position: absolute;
+            color: #717171;
+            font-size: 50px;
+            font-family: "RobotoLight";
+            margin-top: 100px;
+            margin-left: 33%;
+            z-index: 11;
+        }
+
+        .copyright {
+            position: absolute;
+            font-size: 50px;
+            font-family: "RobotoLight";
+            opacity: 0.2;
+            margin-top: 400px;
+            margin-left: 32%;
+            color: #fff;
+            z-index: 11;
+        }
+
+        /* Donate */
+
+        .firstdonate {
+            position: absolute;
+            color: #fff;
+            margin-top: -90px;
+            margin-left: 100px;
+            font-family: "RobotoRegular";
+            font-size: 50px;
+        }
+
+        .price {
+            position: absolute;
+            color: #fff;
+            margin-top: -90px;
+            margin-left: 1500px;
+            font-family: "RobotoRegular";
+            font-size: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="elements"></div>
+
+            <nav class="elem">
+                <ul>
+                    <li class="short">
+                        <a href="/">Главная</a>
+                    </li>
+
+                    <li class="short">
+                        <a href="help.html">Помощь</a>
+                    </li>
+
+                    <li class="long">
+                        <a href="howto.html">Как начать играть?</a>
+                    </li>
+
+                    <li class="short">
+                        <a href="#">Форум</a>
+                    </li>
+
+                    <li class="short">
+                        <a href="donate.html">Донат</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="colorup"></div>
+
+            <div class="logo">
+                <img src="imgs/horizonlogo.png" class="horizonlogo">
+            </div>
+
+            <div class="color"></div>
+
+            <div class="server-name">
+                <div class="horizon">Horizon</div>
+                <div class="city">City</div>
+            </div>
+        </div>
+
+        <div class="mainblock">
+            <div class="collect">Пополнение</div>
+            <div class="course">Курс: 1DO - 10 руб.</div>
+
+            <img src="imgs/donate.png" class="donateplace">
+
+            <div class="login">Логин:</div>
+            <input type="text" oninput="this.value = this.value.replace(/[а-яА-Я]/g, '')" class="login-input">
+
+            <div class="rubles">Рублей к донату:</div>
+            <input type="text" oninput="this.value = this.value.replace(/\D/g, '')" class="rubles-input">
+
+            <div class="result">Вы получите:</div>
+        </div>
+
+        <div class="donatelist">
+            <div class="notice">Донат-очки вы можете потратить на:</div>
+
+            <div class="elementsdonat">
+                <img src="imgs/donateelem1.png" class="firstmenuelem">
+                <div class="firstdonate">+1 Уровень</div>
+                <div class="price">10 <a style="color: #ff4e41;">DO</a></div>
+
+                <img src="imgs/donateelemggrey.png" class="ggreyelemdonate">
+                <img src="imgs/donategrey.png" class="greydonate">
+                <img src="imgs/donateelemggrey.png" class="ggreyelemdonate">
+                <img src="imgs/donatebottom.png" class="donatebottom">
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="gotohome">Вернуться на главную: <a href="index.html" style="font-style: italic; color: #ff6054;">Главная</a></div>
+            <div class="copyright">2017 - 2018. Все права защищены.</div>
+        </div>
+    </div>
+</body>
+
+</html>
