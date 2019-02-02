@@ -15,7 +15,7 @@
             <form onsubmit="mySubmit(event)">
                 <div class="autocomplete">
                     <input placeholder="Enter сity" class="main-input" autocomplete="off">
-                    <button class="main-but" id="getWeatherBut" onclick="fetchApi()">></button>
+                    <button class="main-but" id="getWeatherBut">></button>
 
                     <div class="line"></div>
                 </div>
@@ -44,6 +44,14 @@
             }
         }
 
+        function clickReq() {
+            if (document.getElementsByClassName('main-but')[0].onclick) {
+                fetchApi();
+            }
+
+            else return;
+        }
+
         function setColor() {
             if (kinput.onfocus = function () {
                 line.style.borderColor = 'grey';
@@ -57,6 +65,7 @@
         loadCookie();
         getReq();
         setColor();
+        clickReq();
 
         function fetchApi() {
             var city = kinput.value;
