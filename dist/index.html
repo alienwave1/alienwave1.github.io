@@ -44,14 +44,6 @@
             }
         }
 
-        function clickReq() {
-            if (document.getElementsByClassName('main-but')[0].onclick) {
-                fetchApi();
-            }
-
-            else return;
-        }
-
         function setColor() {
             if (kinput.onfocus = function () {
                 line.style.borderColor = 'grey';
@@ -65,7 +57,6 @@
         loadCookie();
         getReq();
         setColor();
-        clickReq();
 
         function fetchApi() {
             var city = kinput.value;
