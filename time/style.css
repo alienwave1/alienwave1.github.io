@@ -1,0 +1,22 @@
+.container {
+    width: 1920px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.set-date {
+    text-align: center;
+    margin-top: 250px;
+}
+
+.select-date {
+    margin-top: 50px;
+}
+
+#date-cal {
+    margin-right: 100px;
+}
+
+.counter { 
+    margin-top: 50px;
+}

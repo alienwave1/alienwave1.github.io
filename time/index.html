@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Time Lost</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="set-date">
+            <div class="name-event">
+                <input type="text" class="input-event" placeholder="Enter event..">
+            </div>
+
+            <form class="select-date" onsubmit="mySubmit(event)">
+                <input type="date" id="date-cal">
+                <button class="start-count">Start</button>
+            </form>
+
+            <div class="counter"></div>
+        </div>
+
+    </div>
+
+    <script>
+        function mySubmit(e) {
+            e.preventDefault();
+            startCount();
+        }
+
+        function startCount() {
+            var dataselector = document.getElementById("date-cal");
+            var mainblock = document.getElementsByClassName("counter")[0];
+            var date = new Date();
+
+            var d = dataselector.value;
+
+            d = new Date(d);
+            console.log(date);
+
+            mainblock.innerHTML = d;
+        }
+    </script>
+</body>
+
+</html>
