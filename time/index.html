@@ -35,14 +35,14 @@
         function startCount() {
             var dataselector = document.getElementById("date-cal");
             var mainblock = document.getElementsByClassName("counter")[0];
-            var date = new Date();
+            var date = new Date(); // текущая дата
 
-            var d = dataselector.value;
+            var d = dataselector.value; // выбранная дата
 
             d = new Date(d);
-            console.log(date);
+            var res = (d.getTime() - date.getTime()) / (1000*60*60*24);
 
-            mainblock.innerHTML = d;
+            mainblock.innerHTML = (Math.round(res));
         }
     </script>
 </body>
