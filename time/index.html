@@ -14,6 +14,8 @@
         <div class="set-date">
             <div class="name-event">
                 <input type="text" class="input-event" placeholder="Enter event..">
+                <input type="radio" class="selector" name="main-counter" value="count">Counter
+                <input type="radio" class="selector1" name="main-counter" value="howmany">How many
             </div>
 
             <form class="select-date" onsubmit="mySubmit(event)">
@@ -33,25 +35,52 @@
             startCount();
         }
 
-        function startCount() {
-            var dataselector1 = document.getElementsByClassName("date-cal")[0];
-            var dataselector2 = document.getElementsByClassName("date-cal2")[0];
-            var mainblock = document.getElementsByClassName("counter")[0];
-            var date = new Date(); // текущая дата
+        var dataselector1 = document.getElementsByClassName("date-cal")[0];
+        var dataselector2 = document.getElementsByClassName("date-cal2")[0];
+        var counterblock = document.getElementsByClassName("counter")[0];
+        var radiocount1 = document.getElementsByClassName("selector")[0];
+        var radiocount2 = document.getElementsByClassName("selector1")[0];
+        var date = new Date(); // текущая дата
+        var result; // результат
+
+        function dateToDate() {
             var selectdate1 = dataselector1.value; // выбранная дата первого input
             var selectdate2 = dataselector2.value; // выбранная дата второго input
-            var result; // результат
 
             selectdate1 = new Date(selectdate1);
             selectdate2 = new Date(selectdate2);
-            
-            result = (selectdate1.getTime() - selectdate2.getTime()) / (1000*60*60*24);
+
+            result = (selectdate1.getTime() - selectdate2.getTime()) / (1000 * 60 * 60 * 24);
 
             if (result < 0) {
                 result = (result * (-1));
             }
 
-            mainblock.innerHTML = `Days: ${(Math.round(result))}`;
+            counterblock.innerHTML = `Days: ${(Math.round(result))}`;
+        }
+
+        function dateToSelDate() {
+            var selectdate1 = dataselector1.value; // выбранная дата первого input
+            selectdate1 = new Date(selectdate1);
+
+            result = (selectdate1.getTime() - date.getTime()) / (1000 * 60 * 60 * 24);
+
+            if (result < 0) {
+                result = (result * (-1));
+            }
+
+            counterblock.innerHTML = `Days: ${(Math.round(result))}`;
+        }
+
+        function startCount() {
+            if (radiocount1.checked) {
+                dataselector2.style.display = 'none';
+                dateToSelDate();
+            }
+
+            if (radiocount2.checked) {
+                dateToDate();
+            }
         }
     </script>
 </body>
