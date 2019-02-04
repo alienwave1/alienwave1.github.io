@@ -14,7 +14,7 @@
         <div class="set-date">
             <div class="name-event">
                 <input type="text" class="input-event" placeholder="Enter event..">
-                <input type="radio" class="selector" name="main-counter" value="count">Counter
+                <input type="radio" class="selector" name="main-counter" value="count" checked>Counter
                 <input type="radio" class="selector1" name="main-counter" value="howmany">How many
             </div>
 
@@ -44,10 +44,9 @@
         var date = new Date(); // текущая дата
         var result; // результат
 
+        dataselector2.style.display = 'none';
+
         function loadCookie() {
-            // куки от даты до даты
-
-
             radiocount1 = getCookie('rc1') ? getCookie('rc1') : '';
             radiocount2 = getCookie('rc2') ? getCookie('rc2') : '';
         }
@@ -63,6 +62,7 @@
         }
 
         getReq();
+        startCount();
 
         function dateToSelDate() {
             var selectdate1 = dataselector1.value; // выбранная дата первого input
