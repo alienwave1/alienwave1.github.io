@@ -100,21 +100,21 @@
         }
 
         function startCount() { // Основная функция
-            if (radiocount1.onclick = function () {
+            if (radiocount1.addEventListener('click', function () {
                 dataselector2.style.display = 'none';
                 inputevent.style.display = '';
 
                 setCookie('rc1', radiocount1);
                 dateToSelDate();
-            });
+            }));
 
-            if (radiocount2.onclick = function () {
+            if (radiocount2.addEventListener('click', function () {
                 dataselector2.style.display = '';
                 inputevent.style.display = 'none';
 
                 setCookie('rc2', radiocount2);
                 dateToDate();
-            });
+            }));
         }
 
         // Куки  
