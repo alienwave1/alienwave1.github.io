@@ -36,13 +36,13 @@
             var dataselector = document.getElementById("date-cal");
             var mainblock = document.getElementsByClassName("counter")[0];
             var date = new Date(); // текущая дата
+            var selectdate = dataselector.value; // выбранная дата
+            var result; // результат
 
-            var d = dataselector.value; // выбранная дата
+            selectdate = new Date(selectdate);
+            result = (selectdate.getTime() - date.getTime()) / (1000*60*60*24);
 
-            d = new Date(d);
-            var res = (d.getTime() - date.getTime()) / (1000*60*60*24);
-
-            mainblock.innerHTML = (Math.round(res));
+            mainblock.innerHTML = (Math.round(result));
         }
     </script>
 </body>
