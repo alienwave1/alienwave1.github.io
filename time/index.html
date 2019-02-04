@@ -42,6 +42,10 @@
             selectdate = new Date(selectdate);
             result = (selectdate.getTime() - date.getTime()) / (1000*60*60*24);
 
+            if (result < 0) {
+                result = (result * (-1));
+            }
+
             mainblock.innerHTML = (Math.round(result));
         }
     </script>
