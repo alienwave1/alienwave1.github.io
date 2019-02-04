@@ -12,8 +12,12 @@
     margin-top: 50px;
 }
 
-#date-cal {
+.date-cal {
     margin-right: 100px;
+}
+
+.start-count {
+    margin-left: 100px;
 }
 
 .counter { 

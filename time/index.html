@@ -17,7 +17,8 @@
             </div>
 
             <form class="select-date" onsubmit="mySubmit(event)">
-                <input type="date" id="date-cal">
+                <input type="date" class="date-cal">
+                <input type="date" class="date-cal2">
                 <button class="start-count">Start</button>
             </form>
 
@@ -33,20 +34,24 @@
         }
 
         function startCount() {
-            var dataselector = document.getElementById("date-cal");
+            var dataselector1 = document.getElementsByClassName("date-cal")[0];
+            var dataselector2 = document.getElementsByClassName("date-cal2")[0];
             var mainblock = document.getElementsByClassName("counter")[0];
             var date = new Date(); // текущая дата
-            var selectdate = dataselector.value; // выбранная дата
+            var selectdate1 = dataselector1.value; // выбранная дата первого input
+            var selectdate2 = dataselector2.value; // выбранная дата второго input
             var result; // результат
 
-            selectdate = new Date(selectdate);
-            result = (selectdate.getTime() - date.getTime()) / (1000*60*60*24);
+            selectdate1 = new Date(selectdate1);
+            selectdate2 = new Date(selectdate2);
+            
+            result = (selectdate1.getTime() - selectdate2.getTime()) / (1000*60*60*24);
 
             if (result < 0) {
                 result = (result * (-1));
             }
 
-            mainblock.innerHTML = (Math.round(result));
+            mainblock.innerHTML = `Days: ${(Math.round(result))}`;
         }
     </script>
 </body>
