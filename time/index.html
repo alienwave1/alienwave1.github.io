@@ -70,16 +70,24 @@
         }
 
         function dateToSelDate() {
-            var timeinterval = setInterval(function () {
-                var maintime = getTimeRemaining();
-                counterblock.innerHTML = 'days: ' + maintime.days + ' ' + 'hours: ' + maintime.hours + ' ' + 'minutes: ' + maintime.minutes + ' ' + 'seconds: ' + maintime.seconds;
+            var selectdate1 = new Date(dataselector1.value);
+            var date = new Date();
 
-                if (maintime.total <= 0) {
-                    clearInterval(timeinterval);
-                }
+            if (selectdate1 <= date) {
+                counterblock.innerHTML = `Wrong date!`;
+            }
 
-            }, 1000);
+            else {
+                var timeinterval = setInterval(function () {
+                    var maintime = getTimeRemaining();
+                    counterblock.innerHTML = 'days: ' + maintime.days + ' ' + 'hours: ' + maintime.hours + ' ' + 'minutes: ' + maintime.minutes + ' ' + 'seconds: ' + maintime.seconds;
 
+                    if (maintime.total <= 0) {
+                        clearInterval(timeinterval);
+                    }
+
+                }, 1000);
+            }
         }
 
         function startCount() { // Основная функция
