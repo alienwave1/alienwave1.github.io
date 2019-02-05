@@ -12,6 +12,11 @@ a {
     -o-transition: all .3s linear;
 }
 
+input {
+    text-decoration: none;
+    outline: none;
+}
+
 button {
     text-decoration: none;
     outline: none;
