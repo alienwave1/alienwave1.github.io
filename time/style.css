@@ -1,11 +1,48 @@
+@font-face {
+    src: url("fonts/OpenSans-Light.ttf");
+    font-family: 'Open Sans';
+}
+
+a {
+    text-decoration: none;
+}
+
 .container {
     max-width: 1920px;
     margin: 0 auto;
+    font-family: 'Open Sans';
+}
+
+.input-event {
+    font-size: 25px;
 }
 
 .set-date {
     text-align: center;
     margin-top: 250px;
+}
+
+.input-event {
+    border-style: none;
+    background: #fff;
+    font-family: 'Open Sans';
+    font-size: 35px;
+}
+
+.name-event a {
+    font-family: 'Open Sans';
+    color: lightgray;
+    margin-left: 25px;
+    font-size: 25px;
+}
+
+.name-event a:hover {
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+
+    color: #000;
 }
 
 .select-date {
@@ -16,10 +53,7 @@
     margin-right: 100px;
 }
 
-.start-count {
-    margin-left: 100px;
-}
-
 .counter { 
     margin-top: 50px;
+    font-size: 25px;
 }

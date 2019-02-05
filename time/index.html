@@ -14,13 +14,11 @@
         <div class="set-date">
             <div class="name-event">
                 <input type="text" class="input-event" placeholder="Enter event..">
-                <input type="radio" class="selector" name="main-counter" value="count" checked>Counter
-                <input type="radio" class="selector1" name="main-counter" value="howmany">How many
+                <a href="howmany.html" class="switch">How many</a>
             </div>
 
             <form class="select-date" onsubmit="mySubmit(event)">
-                <input type="date" class="date-cal">
-                <input type="date" class="date-cal2">
+                <input type="date" class="date-cal" id="date-cal">
                 <button class="start-count">Start</button>
             </form>
 
@@ -37,35 +35,25 @@
 
         var inputevent = document.getElementsByClassName("input-event")[0];
         var dataselector1 = document.getElementsByClassName("date-cal")[0];
-        var dataselector2 = document.getElementsByClassName("date-cal2")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
-        var radiocount1 = document.getElementsByClassName("selector")[0];
-        var radiocount2 = document.getElementsByClassName("selector1")[0];
+        var switch1 = document.getElementsByClassName("switch")[0];
         var date = new Date(); // текущая дата
         var result; // результат
 
-        dataselector2.style.display = 'none';
-
         function loadCookie() {
-            radiocount1 = getCookie('rc1') ? getCookie('rc1') : '';
-            radiocount2 = getCookie('rc2') ? getCookie('rc2') : '';
+            selectdate1 = getCookie('sd1') ? getCookie('sd1') : '';
+            console.log(getCookie('sd1'));
         }
 
         function getReq() {
-            if (getCookie('rc1')) {
-                startCount();
-            }
-
-            if (getCookie('rc2')) {
+            if (getCookie('sd1')) {
                 startCount();
             }
         }
 
-        getReq();
-        startCount();
-
         function dateToSelDate() {
-            var selectdate1 = dataselector1.value; // выбранная дата первого input
+            var selectdate1 = dataselector1.value;
+
             selectdate1 = new Date(selectdate1);
 
             if (selectdate1 < date) {
@@ -83,39 +71,10 @@
             }
         }
 
-        function dateToDate() {
-            var selectdate1 = dataselector1.value; // выбранная дата первого input
-            var selectdate2 = dataselector2.value; // выбранная дата второго input
-
-            selectdate1 = new Date(selectdate1);
-            selectdate2 = new Date(selectdate2);
-
-            result = (selectdate1.getTime() - selectdate2.getTime()) / (1000 * 60 * 60 * 24);
-
-            if (result < 0) {
-                result = (result * (-1));
-            }
-
-            counterblock.innerHTML = `Days: ${(Math.round(result))}`;
-        }
-
         function startCount() { // Основная функция
-            if (radiocount1.addEventListener('click', function () {
-                dataselector2.style.display = 'none';
-                inputevent.style.display = '';
-
-                setCookie('rc1', radiocount1);
-                dateToSelDate();
-            }));
-
-            if (radiocount2.addEventListener('click', function () {
-                dataselector2.style.display = '';
-                inputevent.style.display = 'none';
-
-                setCookie('rc2', radiocount2);
-                dateToDate();
-            }));
+            dateToSelDate();
         }
+
 
         // Куки  
         function getCookie(name) {
