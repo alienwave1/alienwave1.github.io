@@ -14,11 +14,11 @@
         <div class="set-date">
             <div class="name-event">
                 <input type="text" class="input-event" placeholder="Enter event..">
-                <a href="howmuch.html" class="selector1">How many</a>
+                <a href="howmany.html" class="switch">How many</a>
             </div>
 
             <form class="select-date" onsubmit="mySubmit(event)">
-                <input type="date" class="date-cal">
+                <input type="date" class="date-cal" id="date-cal">
                 <button class="start-count">Start</button>
             </form>
 
@@ -36,32 +36,24 @@
         var inputevent = document.getElementsByClassName("input-event")[0];
         var dataselector1 = document.getElementsByClassName("date-cal")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
-        var radiocount1 = document.getElementsByClassName("selector")[0];
-        var radiocount2 = document.getElementsByClassName("selector1")[0];
+        var switch1 = document.getElementsByClassName("switch")[0];
         var date = new Date(); // текущая дата
         var result; // результат
 
-        /* function loadCookie() {
-            radiocount1 = getCookie('rc1') ? getCookie('rc1') : '';
-            radiocount2 = getCookie('rc2') ? getCookie('rc2') : '';
+        function loadCookie() {
+            selectdate1 = getCookie('sd1') ? getCookie('sd1') : '';
+            console.log(getCookie('sd1'));
         }
 
         function getReq() {
-            if (getCookie('rc1')) {
-                startCount();
-            }
-
-            if (getCookie('rc2')) {
+            if (getCookie('sd1')) {
                 startCount();
             }
         }
 
-        getReq();
-
-        */
-
         function dateToSelDate() {
-            var selectdate1 = dataselector1.value; // выбранная дата первого input
+            var selectdate1 = dataselector1.value;
+
             selectdate1 = new Date(selectdate1);
 
             if (selectdate1 < date) {
@@ -82,6 +74,7 @@
         function startCount() { // Основная функция
             dateToSelDate();
         }
+
 
         // Куки  
         function getCookie(name) {
