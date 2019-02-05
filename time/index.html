@@ -18,8 +18,10 @@
             </div>
 
             <form class="select-date" onsubmit="mySubmit(event)">
-                <input type="date" class="date-cal" id="date-cal">
-                <button class="start-count">Start</button>
+                <div class="select-date-div">
+                    <input type="date" class="date-cal" id="date-cal">
+                    <button class="start-count">Start</button>
+                </div>
             </form>
 
             <div class="counter"></div>
@@ -37,8 +39,6 @@
         var dataselector1 = document.getElementsByClassName("date-cal")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
         var switch1 = document.getElementsByClassName("switch")[0];
-        var date = new Date(); // текущая дата
-        var result; // результат
 
         function loadCookie() {
             selectdate1 = getCookie('sd1') ? getCookie('sd1') : '';
@@ -51,30 +51,40 @@
             }
         }
 
+        function getTimeRemaining() {
+            var date = new Date();
+            var selectdate1 = new Date(dataselector1.value);
+            var maintime = selectdate1.getTime() - date.getTime();
+            var seconds = Math.round((maintime / 1000) % 60);
+            var minutes = Math.round((maintime / 1000 / 60) % 60);
+            var hours = Math.round((maintime / (1000 * 60 * 60)) % 24);
+            var days = Math.round(maintime / (1000 * 60 * 60 * 24));
+
+            return {
+                'total': maintime,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
         function dateToSelDate() {
-            var selectdate1 = dataselector1.value;
+            var timeinterval = setInterval(function () {
+                var maintime = getTimeRemaining();
+                counterblock.innerHTML = 'days: ' + maintime.days + ' ' + 'hours: ' + maintime.hours + ' ' + 'minutes: ' + maintime.minutes + ' ' + 'seconds: ' + maintime.seconds;
 
-            selectdate1 = new Date(selectdate1);
-
-            if (selectdate1 < date) {
-                counterblock.innerHTML = `Wrong date!`;
-            }
-
-            else {
-                result = (selectdate1.getTime() - date.getTime()) / (1000 * 60 * 60 * 24);
-
-                if (result < 0) {
-                    result = (result * (-1));
+                if (maintime.total <= 0) {
+                    clearInterval(timeinterval);
                 }
 
-                counterblock.innerHTML = `Days: ${(Math.round(result))}`;
-            }
+            }, 1000);
+
         }
 
         function startCount() { // Основная функция
             dateToSelDate();
         }
-
 
         // Куки  
         function getCookie(name) {
