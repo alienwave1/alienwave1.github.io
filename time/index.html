@@ -80,7 +80,10 @@
             else {
                 var timeinterval = setInterval(function () {
                     var maintime = getTimeRemaining();
-                    counterblock.innerHTML = 'days: ' + maintime.days + ' ' + 'hours: ' + maintime.hours + ' ' + 'minutes: ' + maintime.minutes + ' ' + 'seconds: ' + maintime.seconds;
+
+                    counterblock.innerHTML = `<div>Days: ${maintime.days}
+                    Hours: ${maintime.hours} Minutes: ${maintime.minutes}
+                    Seconds: ${maintime.seconds}</div>`;
 
                     if (maintime.total <= 0) {
                         clearInterval(timeinterval);
