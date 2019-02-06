@@ -81,9 +81,9 @@
                 var timeinterval = setInterval(function () {
                     var maintime = getTimeRemaining();
 
-                    counterblock.innerHTML = `<div>Days: ${maintime.days}
-                    Hours: ${maintime.hours} Minutes: ${maintime.minutes}
-                    Seconds: ${maintime.seconds}</div>`;
+                    counterblock.innerHTML = `${maintime.days} Days
+                    ${maintime.hours} Hours ${maintime.minutes} Minutes
+                    ${maintime.seconds} Seconds`;
 
                     if (maintime.total <= 0) {
                         clearInterval(timeinterval);
