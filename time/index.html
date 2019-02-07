@@ -20,6 +20,8 @@
             <form class="select-date" onsubmit="mySubmit(event)">
                 <div class="select-date-div">
                     <input type="date" class="date-cal" id="date-cal">
+                    <input type="text" class="hours" value="00">:
+                    <input type="text" class="minutes" value="00">
                     <button class="start-count">Start</button>
                 </div>
             </form>
@@ -39,26 +41,17 @@
         var dataselector1 = document.getElementsByClassName("date-cal")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
         var switch1 = document.getElementsByClassName("switch")[0];
-
-        function loadCookie() {
-            selectdate1 = getCookie('sd1') ? getCookie('sd1') : '';
-            console.log(getCookie('sd1'));
-        }
-
-        function getReq() {
-            if (getCookie('sd1')) {
-                startCount();
-            }
-        }
+        var sethour = document.getElementsByClassName("hours")[0];
+        var setminutes = document.getElementsByClassName("minutes")[0];
 
         function getTimeRemaining() {
             var date = new Date();
             var selectdate1 = new Date(dataselector1.value);
             var maintime = selectdate1.getTime() - date.getTime();
-            var seconds = Math.round((maintime / 1000) % 60);
-            var minutes = Math.round((maintime / 1000 / 60) % 60);
-            var hours = Math.round((maintime / (1000 * 60 * 60)) % 24);
-            var days = Math.round(maintime / (1000 * 60 * 60 * 24));
+            var seconds = Math.floor((maintime / 1000) % 60);
+            var minutes = Math.floor((maintime / 60000) % 60);
+            var hours = Math.floor((maintime / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(maintime / (1000 * 60 * 60 * 24));
 
             return {
                 'total': maintime,
@@ -67,6 +60,22 @@
                 'minutes': minutes,
                 'seconds': seconds
             };
+        }
+
+        function uClock() {
+            var maintime = getTimeRemaining();
+
+            console.log(maintime.minutes);
+
+            counterblock.innerHTML = `${maintime.days} Days
+                ${maintime.hours} Hours ${maintime.minutes} Minutes
+                ${maintime.seconds} Seconds`;
+
+            if (maintime.total <= 0) {
+                clearInterval(timeinterval);
+            }
+
+            var timeinterval = setInterval(uClock, 1000);
         }
 
         function dateToSelDate() {
@@ -78,23 +87,15 @@
             }
 
             else {
-                var timeinterval = setInterval(function () {
-                    var maintime = getTimeRemaining();
-
-                    counterblock.innerHTML = `${maintime.days} Days
-                    ${maintime.hours} Hours ${maintime.minutes} Minutes
-                    ${maintime.seconds} Seconds`;
-
-                    if (maintime.total <= 0) {
-                        clearInterval(timeinterval);
-                    }
-
-                }, 1000);
+                uClock();
             }
         }
 
         function startCount() { // Основная функция
             dateToSelDate();
+
+            var d = new Date(sethour);
+            console.log(d.setHours());
         }
 
         // Куки  
