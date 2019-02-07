@@ -47,10 +47,10 @@
         function getTimeRemaining() {
             var date = new Date();
             var selectdate1 = new Date(dataselector1.value);
-            var maintime = selectdate1.getTime() - date.getTime();
+            var maintime = ((selectdate1.getTime() - date.getTime()) - (60 * 1000 * 180));
             var seconds = Math.floor((maintime / 1000) % 60);
             var minutes = Math.floor((maintime / 60000) % 60);
-            var hours = Math.floor((maintime / (1000 * 60 * 60)) % 24);
+            var hours = Math.floor(maintime / 1000 / 3600);
             var days = Math.floor(maintime / (1000 * 60 * 60 * 24));
 
             return {
@@ -62,40 +62,25 @@
             };
         }
 
-        function uClock() {
+        function dateToSelDate() {
             var maintime = getTimeRemaining();
 
-            console.log(maintime.minutes);
-
-            counterblock.innerHTML = `${maintime.days} Days
-                ${maintime.hours} Hours ${maintime.minutes} Minutes
-                ${maintime.seconds} Seconds`;
+            var timeinterval = setInterval(dateToSelDate, 1000);
 
             if (maintime.total <= 0) {
                 clearInterval(timeinterval);
-            }
-
-            var timeinterval = setInterval(uClock, 1000);
-        }
-
-        function dateToSelDate() {
-            var selectdate1 = new Date(dataselector1.value);
-            var date = new Date();
-
-            if (selectdate1 <= date) {
                 counterblock.innerHTML = `Wrong date!`;
             }
 
             else {
-                uClock();
+                counterblock.innerHTML = `${maintime.days} Days
+                ${maintime.hours} Hours ${maintime.minutes} Minutes
+                ${maintime.seconds} Seconds`;
             }
         }
 
         function startCount() { // Основная функция
             dateToSelDate();
-
-            var d = new Date(sethour);
-            console.log(d.setHours());
         }
 
         // Куки  
