@@ -20,8 +20,8 @@
             <form class="select-date" onsubmit="mySubmit(event)">
                 <div class="select-date-div">
                     <input type="date" class="date-cal" id="date-cal">
-                    <input type="text" class="hours" value="00">:
-                    <input type="text" class="minutes" value="00">
+                    <input type="text" class="sethours" value="00">:
+                    <input type="text" class="setminutes" value="00">
                     <button class="start-count">Start</button>
                 </div>
             </form>
@@ -32,8 +32,11 @@
     </div>
 
     <script>
+        var timeinterval;
+
         function mySubmit(e) {
             e.preventDefault();
+            timeinterval = setInterval(startCount, 1000);
             startCount();
         }
 
@@ -41,44 +44,35 @@
         var dataselector = document.getElementsByClassName("date-cal")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
         var switch1 = document.getElementsByClassName("switch")[0];
-        var sethour = document.getElementsByClassName("hours")[0];
-        var setminutes = document.getElementsByClassName("minutes")[0];
+        var sethour = document.getElementsByClassName("sethours")[0];
+        var setminutes = document.getElementsByClassName("setminutes")[0];
 
         function startCount() {
             var date = new Date();
+            var timeres = (sethour.value * 3600000) + (setminutes.value * 60000);
             var selectdate = new Date(dataselector.value);
-            var selecthours = new Date(sethour.value);
-            var selectminutes = new Date(setminutes.value);
-            var resulttime = selecthours.getHours();
-            var maintime = ((selectdate.getTime() - date.getTime()) - (60 * 1000 * 180));
+            var maintime = ((selectdate.getTime() - date.getTime()) - (60 * 1000 * 180) + timeres);
             var seconds = Math.floor((maintime / 1000) % 60);
             var minutes = Math.floor((maintime / 60000) % 60);
             var hours = Math.floor((maintime / 1000 / 3600) % 24);
             var days = Math.floor(maintime / (1000 * 60 * 60 * 24));
 
-            console.log(selecthours);
+            console.log(maintime);
 
             if (maintime <= 0) {
-                var startTime = startTimer();
+                timeinterval = clearInterval(timeinterval);
                 counterblock.innerHTML = `Wrong date!`;
-                clearInterval(startTime.timeinterval);
             }
 
             else {
-                counterblock.innerHTML = `${days} Days
-                ${hours} Hours ${minutes} Minutes
-                ${seconds} Seconds`;
+                counterblock.innerHTML = 
+                    `${days} Days
+                    ${hours} Hours ${minutes} Minutes
+                    ${seconds} Seconds`;
             }
         }
 
-        function startTimer() {
-            var timeinterval = setInterval(startCount, 1000);
-
-            return {
-                'timeinterval': timeinterval
-            };
-        }
-
+        /*
         // Куки  
         function getCookie(name) {
             var matches = document.cookie.match(new RegExp(
@@ -115,6 +109,7 @@
 
             document.cookie = updatedCookie;
         }
+        */
     </script>
 </body>
 
