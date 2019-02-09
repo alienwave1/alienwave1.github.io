@@ -35,11 +35,10 @@
         function mySubmit(e) {
             e.preventDefault();
             startCount();
-            var timeinterval = setInterval(startCount, 1000);
         }
 
         var inputevent = document.getElementsByClassName("input-event")[0];
-        var dataselector1 = document.getElementsByClassName("date-cal")[0];
+        var dataselector = document.getElementsByClassName("date-cal")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
         var switch1 = document.getElementsByClassName("switch")[0];
         var sethour = document.getElementsByClassName("hours")[0];
@@ -47,28 +46,36 @@
 
         function startCount() {
             var date = new Date();
-            var selectdate1 = new Date(dataselector1.value);
-            var maintime = ((selectdate1.getTime() - date.getTime()) - (60 * 1000 * 180));
+            var selectdate = new Date(dataselector.value);
+            var selecthours = new Date(sethour.value);
+            var selectminutes = new Date(setminutes.value);
+            var resulttime = selecthours.getHours();
+            var maintime = ((selectdate.getTime() - date.getTime()) - (60 * 1000 * 180));
             var seconds = Math.floor((maintime / 1000) % 60);
             var minutes = Math.floor((maintime / 60000) % 60);
             var hours = Math.floor((maintime / 1000 / 3600) % 24);
             var days = Math.floor(maintime / (1000 * 60 * 60 * 24));
 
-            if (maintime.total <= 0) {
-                clearInterval(timeinterval);
+            console.log(selecthours);
+
+            if (maintime <= 0) {
+                var startTime = startTimer();
                 counterblock.innerHTML = `Wrong date!`;
+                clearInterval(startTime.timeinterval);
             }
 
-            counterblock.innerHTML = `${days} Days
+            else {
+                counterblock.innerHTML = `${days} Days
                 ${hours} Hours ${minutes} Minutes
                 ${seconds} Seconds`;
+            }
+        }
+
+        function startTimer() {
+            var timeinterval = setInterval(startCount, 1000);
 
             return {
-                'total': maintime,
-                'days': days,
-                'hours': hours,
-                'minutes': minutes,
-                'seconds': seconds
+                'timeinterval': timeinterval
             };
         }
 
