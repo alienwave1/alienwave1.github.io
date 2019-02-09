@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url(fonts/OpenSans-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url(fonts/Lato-Regular.ttf);
+}
+
+html {
+    font-family: 'Open Sans';
+    text-transform: lowercase;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    outline: none;
+    transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+}
+
+a:hover {
+    color: #988f8a;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.navigation {
+    height: 75px;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.navigation-title {
+    font-family: 'Lato';
+    display: inline;
+    text-transform: capitalize;
+}
+
+.navigation section {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.navigation-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    float: right;
+}
+
+ul.navigation-list > li {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.content {
+    flex: 1;
+}
+
+.centered {
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 700px;
+}
+
+.about {
+    text-align: center;
+    font-family: 'Lato';
+}
+
+.about > h1 {
+    text-transform: capitalize;
+}
+
+ul.links {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+ul.links > li {
+    width: 55px;
+}
+
+.fab {
+    font-size: 35px;
+}
+
+.fa-vk {
+    content: "\f189";
+}
+
+.fa-vk::before {
+    content: "\f189";
+}
+
+.fa-twitter {
+    content: "\f099";
+}
+
+.fa-twitter::before {
+    content: "\f099";
+}
+
+.fa-instagram {
+    content: "\f16d";
+}
+
+.fa-instagram::before {
+    content: "\f16d";
+}
+
+.fa-github {
+    content: "\f09b";
+}
+
+.fa-github::before {
+    content: "\f09b";
+}
+
+.footer {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    margin: 0 auto;
+}
