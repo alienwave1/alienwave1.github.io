@@ -43,6 +43,7 @@
             e.preventDefault();
             timeinterval = setInterval(startCount, 1000);
             startCount();
+            resetCount();
         }
 
         var inputevent = document.getElementsByClassName("input-event")[0];
@@ -85,13 +86,12 @@
             if (stopcounter.addEventListener('click', function() {
                 sethour.value = "";
                 setminutes.value = "";
+                counterblock.innerHTML = "";
+                
                 timeinterval = clearInterval(timeinterval);
                 timeblock.style.display = "";
-                counterblock.style.display = "none";
             }));
         }
-
-        resetCount();
 
         // Куки  
         function getCookie(name) {
