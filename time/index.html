@@ -66,7 +66,7 @@
             }
 
             else {
-                counterblock.innerHTML = 
+                counterblock.innerHTML =
                     `${days} Days
                     ${hours} Hours ${minutes} Minutes
                     ${seconds} Seconds`;
@@ -76,7 +76,7 @@
         }
 
         function resetCount() {
-            if (stopcounter.addEventListener('click', function() {
+            if (stopcounter.addEventListener('click', function () {
                 sethour.value = "";
                 setminutes.value = "";
                 counterblock.innerHTML = "";
