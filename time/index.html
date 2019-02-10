@@ -25,6 +25,7 @@
                     <button class="start-count">Start</button>
                 </div>
             </form>
+            <button class="reset-count">Reset</button>
 
             <div class="counter"></div>
         </div>
@@ -59,7 +60,7 @@
 
             console.log(maintime);
 
-            if (maintime <= 0) {
+            if (maintime <= 0 || sethour.value > 23 || setminutes.value > 59) {
                 timeinterval = clearInterval(timeinterval);
                 counterblock.innerHTML = `Wrong date!`;
             }
@@ -72,7 +73,19 @@
             }
         }
 
-        /*
+        function resetCount() {
+            var stopcounter = document.getElementsByClassName("reset-count")[0];
+
+            if (stopcounter.addEventListener('click', function() {
+                sethour.value = "";
+                setminutes.value = "";
+                timeinterval = clearInterval(timeinterval);
+                counterblock.innerHTML = "";
+            }));
+        }
+
+        resetCount();
+
         // Куки  
         function getCookie(name) {
             var matches = document.cookie.match(new RegExp(
@@ -109,7 +122,6 @@
 
             document.cookie = updatedCookie;
         }
-        */
     </script>
 </body>
 
