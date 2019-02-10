@@ -20,8 +20,12 @@
             <form class="select-date" onsubmit="mySubmit(event)">
                 <div class="select-date-div">
                     <input type="date" class="date-cal" id="date-cal">
-                    <input type="text" class="sethours" placeholder="00">:
-                    <input type="text" class="setminutes" placeholder="00">
+
+                    <div class="time">
+                        <input type="text" class="sethours" placeholder="00">:
+                        <input type="text" class="setminutes" placeholder="00">
+                    </div>
+
                     <button class="start-count">Start</button>
                 </div>
             </form>
@@ -43,6 +47,8 @@
 
         var inputevent = document.getElementsByClassName("input-event")[0];
         var dataselector = document.getElementsByClassName("date-cal")[0];
+        var timeblock = document.getElementsByClassName("select-date-div")[0];
+        var stopcounter = document.getElementsByClassName("reset-count")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
         var switch1 = document.getElementsByClassName("switch")[0];
         var sethour = document.getElementsByClassName("sethours")[0];
@@ -70,17 +76,18 @@
                     `${days} Days
                     ${hours} Hours ${minutes} Minutes
                     ${seconds} Seconds`;
+
+                timeblock.style.display = "none";
             }
         }
 
         function resetCount() {
-            var stopcounter = document.getElementsByClassName("reset-count")[0];
-
             if (stopcounter.addEventListener('click', function() {
                 sethour.value = "";
                 setminutes.value = "";
                 timeinterval = clearInterval(timeinterval);
-                counterblock.innerHTML = "";
+                timeblock.style.display = "";
+                counterblock.style.display = "none";
             }));
         }
 
