@@ -14,17 +14,13 @@
         <div class="set-date">
             <div class="name-event">
                 <input type="text" class="input-event" placeholder="Enter event..">
-                <a href="howmany.html" class="switch">How many</a>
             </div>
 
             <form class="select-date" onsubmit="mySubmit(event)">
                 <div class="select-date-div">
                     <input type="date" class="date-cal" id="date-cal">
-
-                    <div class="time">
-                        <input type="text" class="sethours" placeholder="00">:
-                        <input type="text" class="setminutes" placeholder="00">
-                    </div>
+                    <input type="text" class="sethours" placeholder="00">:
+                    <input type="text" class="setminutes" placeholder="00">
 
                     <button class="start-count">Start</button>
                 </div>
@@ -51,7 +47,6 @@
         var timeblock = document.getElementsByClassName("select-date-div")[0];
         var stopcounter = document.getElementsByClassName("reset-count")[0];
         var counterblock = document.getElementsByClassName("counter")[0];
-        var switch1 = document.getElementsByClassName("switch")[0];
         var sethour = document.getElementsByClassName("sethours")[0];
         var setminutes = document.getElementsByClassName("setminutes")[0];
 
@@ -64,8 +59,6 @@
             var minutes = Math.floor((maintime / 60000) % 60);
             var hours = Math.floor((maintime / 1000 / 3600) % 24);
             var days = Math.floor(maintime / (1000 * 60 * 60 * 24));
-
-            console.log(maintime);
 
             if (maintime <= 0 || sethour.value > 23 || setminutes.value > 59) {
                 timeinterval = clearInterval(timeinterval);
@@ -87,7 +80,7 @@
                 sethour.value = "";
                 setminutes.value = "";
                 counterblock.innerHTML = "";
-                
+
                 timeinterval = clearInterval(timeinterval);
                 timeblock.style.display = "";
             }));
