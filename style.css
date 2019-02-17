@@ -37,7 +37,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100%;
+    max-width: 100%;
 }
 
 .navigation {
@@ -106,7 +106,8 @@ ul.links {
 }
 
 ul.links > li {
-    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
 }
 
 .fab {
