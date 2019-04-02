@@ -9,7 +9,6 @@ $(document).ready(function() {
 			$('#header').removeClass('fixed');
 		}
 	});
-
 	
 	// Page Scroll
 	var sections = $('section')
@@ -26,6 +25,7 @@ $(document).ready(function() {
 	    	}
 	  	});
 	});
+
 	nav.find('a').on('click', function () {
 	  	var $el = $(this)
 	    	id = $el.attr('href');
