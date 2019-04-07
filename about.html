@@ -89,12 +89,12 @@
                 max-width: 700px;
             }
 
-            .centered > h1 {
+            .centered p {
                 font-family: 'Lato';
-                font-size: 45px;
+                font-size: 35px;
             }
 
-            .centered > div {
+            .centered div {
                 font-size: 25px;
                 margin-top: 25px;
             }
@@ -106,6 +106,17 @@
 
             .footer-section {
                 margin: 0 auto;
+            }
+
+            @media screen and (max-width: 704px) {
+                .navigation section {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+
+                .content {
+                    margin-left: 20px;
+                }
             }
         </style>
     </head>
@@ -126,9 +137,10 @@
 
             <div class="content">
                 <section class="centered">
-                    <h1>about me</h1>
+                    <p>about me</p>
                     <div>18 y.o.</div>
                     <div>newbie web-dev</div>
+                    <div>html, css, js</div>
                 </section>
             </div>
 
