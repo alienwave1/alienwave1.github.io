@@ -1,0 +1,23 @@
+html, body, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: rgb(44, 62, 80);
+    min-height: 879px;
+    max-height: 879px;
+}
+
+.imgs {
+    display: block;
+    text-align: center;
+    padding-top: 124px;
+}
+
+.logo-shadow {
+    position: absolute;
+    width: 511px;
+    height: 371px;
+    opacity: 0.2;
+}
