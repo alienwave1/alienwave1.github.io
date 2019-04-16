@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 html, body, h1 {
     margin: 0;
     padding: 0;
@@ -19,5 +21,24 @@ html, body, h1 {
     position: absolute;
     width: 511px;
     height: 371px;
-    opacity: 0.2;
+    opacity: 0.1;
+}
+
+.header-text {
+    text-align: center;
+    margin-top: 124px;
+    color: #fff;
+}
+
+.header-text h1 {
+    font-family: 'Open Sans';
+    font-size: 48px;
+    line-height: 1.208;
+}
+
+.header-text-div {
+    font-family: 'Open Sans';
+    margin-top: 15px;
+    font-size: 18px;
+    line-height: 1.777;   
 }
