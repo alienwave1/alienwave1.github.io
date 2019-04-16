@@ -2,12 +2,6 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,500,700");
 
-/*
-	Retrospect by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
-
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -1729,12 +1723,12 @@
 		margin: 0 0 2em 0;
 	}
 
-		pre code {
-			display: block;
-			line-height: 1.75em;
-			padding: 1em 1.5em;
-			overflow-x: auto;
-		}
+	pre code {
+		display: block;
+		line-height: 1.75em;
+		padding: 1em 1.5em;
+		overflow-x: auto;
+	}
 
 	hr {
 		border: 0;
@@ -1743,9 +1737,9 @@
 		margin: 2em 0;
 	}
 
-		hr.major {
-			margin: 3em 0;
-		}
+	hr.major {
+		margin: 3em 0;
+	}
 
 	.align-left {
 		text-align: left;
@@ -1880,17 +1874,16 @@
 		margin: 0 0 2em 0;
 	}
 
+	form ul.actions {
+		margin-top: 4em;
+	}
+
+	@media screen and (max-width: 736px) {
+
 		form ul.actions {
-			margin-top: 4em;
+			margin-top: 2em;
 		}
-
-		@media screen and (max-width: 736px) {
-
-			form ul.actions {
-				margin-top: 2em;
-			}
-
-		}
+	}
 
 	label {
 		display: block;
@@ -1932,31 +1925,31 @@
 		position: relative;
 	}
 
-		.select-wrapper:before {
-			content: "";
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
-			font-style: normal;
-			font-weight: normal;
-			text-transform: none !important;
-		}
+	.select-wrapper:before {
+		content: "";
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+	}
 
-		.select-wrapper:before {
-			display: block;
-			height: 3.5em;
-			line-height: 3.5em;
-			pointer-events: none;
-			position: absolute;
-			right: 0;
-			text-align: center;
-			top: 0;
-			width: 3.5em;
-		}
+	.select-wrapper:before {
+		display: block;
+		height: 3.5em;
+		line-height: 3.5em;
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		text-align: center;
+		top: 0;
+		width: 3.5em;
+	}
 
-		.select-wrapper select::-ms-expand {
-			display: none;
-		}
+	.select-wrapper select::-ms-expand {
+		display: none;
+	}
 
 	input[type="text"],
 	input[type="password"],
