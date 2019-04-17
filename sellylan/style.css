@@ -35,3 +35,38 @@ html, body, h1 {
     font-size: 18px;
     line-height: 1.777;   
 }
+
+.header-button {
+    margin-top: 109px;
+    text-align: center;
+}
+
+.header-button-first {
+    color: #fff;
+    border-radius: 4px;
+    border-style: none;
+    background-color: rgb(22, 160, 133);
+    box-shadow: inset 0px 3px 0px 0px rgba(59, 212, 182, 0.004);
+    width: 230px;
+    height: 72px; 
+    font-size: 16px;
+    font-family: "Open Sans";
+    text-transform: uppercase;
+    line-height: 2.844;
+    margin: 30px;
+}
+
+.header-button-second {
+    color: #fff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.231);
+    width: 230px;
+    height: 72px;
+    font-size: 16px;
+    font-family: "Open Sans";
+    text-transform: uppercase;
+    line-height: 2.844;      
+}
