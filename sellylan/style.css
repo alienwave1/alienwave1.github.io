@@ -17,13 +17,6 @@ html, body, h1 {
     padding-top: 124px;
 }
 
-.logo-shadow {
-    position: absolute;
-    width: 511px;
-    height: 371px;
-    opacity: 0.1;
-}
-
 .header-text {
     text-align: center;
     margin-top: 124px;
