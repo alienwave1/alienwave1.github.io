@@ -36,7 +36,7 @@ html, body, h1 {
     line-height: 1.208;
 }
 
-.header-text-div {
+.header-text div {
     font-family: 'Open Sans';
     margin-top: 15px;
     font-size: 18px;
