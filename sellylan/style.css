@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@font-face {
+    src: url(../fonts/OpenSans-Light.ttf);
+    font-family: 'Open Sans';
+}
 
 html, body, h1 {
     margin: 0;
     padding: 0;
+}
+
+html {
+    height: 3000px;
 }
 
 .header {
@@ -14,7 +21,7 @@ html, body, h1 {
 .imgs {
     display: block;
     text-align: center;
-    padding-top: 124px;
+    padding-top: 123px;
 }
 
 .header-text {
@@ -50,7 +57,7 @@ html, body, h1 {
     width: 230px;
     height: 72px; 
     font-size: 16px;
-    font-family: "Open Sans";
+    font-family: 'Open Sans';
     text-transform: uppercase;
     line-height: 2.844;
     margin-right: 15px;
@@ -98,4 +105,44 @@ html, body, h1 {
 .header-stripes {
     margin-top: 63px;
     width: 100%;
+}
+
+.content {
+    margin-top: 141px;
+}
+
+.content-first {
+    text-align: center;
+}
+
+.content-first-text {
+    position: absolute;
+    text-align: left;
+    left: 800px;
+    margin-top: 170px;
+    min-width: 320px;
+    font-size: 35px;
+    font-family: 'Open Sans';
+    color: rgb(138, 138, 138);
+    text-transform: uppercase;
+}
+
+.content-first-text img {
+    margin-left: 30px;
+}
+
+.content-first-subtext {
+    position: absolute;
+    text-align: left;
+    left: 800px;
+    margin-top: 300px;
+    max-width: 320px;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    color: rgb(119, 119, 119);
+
+}
+
+.content-first-phone {
+    margin-left: 370px;
 }
