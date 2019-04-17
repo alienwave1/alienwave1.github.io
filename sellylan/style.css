@@ -56,6 +56,10 @@ html, body, h1 {
     margin: 30px;
 }
 
+.header-button-first:hover {
+    background-color:#19b596;
+}
+
 .header-button-second {
     color: #fff;
     border-style: solid;
@@ -69,4 +73,8 @@ html, body, h1 {
     font-family: "Open Sans";
     text-transform: uppercase;
     line-height: 2.844;      
+}
+
+.header-button-second:hover {
+    background-color: #141d25;
 }
