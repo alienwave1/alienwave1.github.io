@@ -112,14 +112,16 @@ html {
 }
 
 .content-first {
-    text-align: center;
+    display: flex;
+	justify-content: center;
+}
+
+.content-first-texts {
+    margin: auto 20px;
 }
 
 .content-first-text {
-    position: absolute;
     text-align: left;
-    left: 800px;
-    margin-top: 170px;
     min-width: 320px;
     font-size: 35px;
     font-family: 'Open Sans';
@@ -132,17 +134,13 @@ html {
 }
 
 .content-first-subtext {
-    position: absolute;
     text-align: left;
-    left: 800px;
-    margin-top: 300px;
     max-width: 320px;
     font-size: 16px;
     font-family: 'Open Sans';
     color: rgb(119, 119, 119);
-
 }
 
 .content-first-phone {
-    margin-left: 370px;
+    margin: auto 220px;
 }

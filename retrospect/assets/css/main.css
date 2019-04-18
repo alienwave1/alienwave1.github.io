@@ -2182,18 +2182,18 @@
 		position: relative;
 	}
 
-		.image img {
-			border-radius: 0;
-			display: block;
-		}
+	.image img {
+		border-radius: 0;
+		display: block;
+	}
 
-		.image.left, .image.right {
-			max-width: 40%;
-		}
+	.image.left, .image.right {
+		max-width: 40%;
+	}
 
-			.image.left img, .image.right img {
-				width: 100%;
-			}
+	.image.left img, .image.right img {
+		width: 100%;
+	}
 
 		.image.left {
 			float: left;
