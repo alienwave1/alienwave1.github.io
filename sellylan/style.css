@@ -107,9 +107,12 @@ html {
     width: 100%;
 }
 
+/* Content block */
 .content {
     margin-top: 141px;
 }
+
+/* Content h1 block */
 
 .content-first {
     display: flex;
@@ -125,7 +128,7 @@ html {
     min-width: 320px;
     font-size: 35px;
     font-family: 'Open Sans';
-    color: rgb(138, 138, 138);
+    color: rgb(96, 95, 95);
     text-transform: uppercase;
 }
 
@@ -139,6 +142,7 @@ html {
     font-size: 16px;
     font-family: 'Open Sans';
     color: rgb(119, 119, 119);
+    margin-top: 15px;
 }
 
 .content-first-next {
@@ -161,4 +165,53 @@ html {
     background-color: rgb(228, 232, 234);
     width: 80%;
     height: 2px;
+}
+
+/* Content h2 block */
+
+.content-second {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.content-second-texts {
+    margin: auto 20px;
+}
+
+.content-second-text {
+    text-align: left;
+    min-width: 320px;
+    font-size: 35px;
+    font-family: 'Open Sans';
+    color: rgb(96, 95, 95);
+    text-transform: uppercase;
+}
+
+.content-second-text img {
+    margin-left: 30px;
+}
+
+.content-second-subtext {
+    text-align: left;
+    max-width: 320px;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    color: rgb(119, 119, 119);
+    margin-top: 15px;
+}
+
+.content-second-next {
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(22, 160, 133);
+    border-radius: 50%;
+    background-color: rgba(245, 245, 245, 0);
+    width: 29px;
+    height: 29px;
+    margin-top: 25px;
+}
+
+.content-second-phone {
+    margin: auto 220px;
 }
