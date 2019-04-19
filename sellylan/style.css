@@ -194,7 +194,6 @@ html {
 
 .content-second-subtext {
     text-align: left;
-    max-width: 320px;
     font-size: 16px;
     font-family: 'Open Sans';
     color: rgb(119, 119, 119);
@@ -213,5 +212,5 @@ html {
 }
 
 .content-second-phone {
-    margin: auto 220px;
+    margin: auto 175px;
 }
