@@ -109,6 +109,7 @@ html {
 
 /* Content block */
 .content {
+    max-width: 1400px;
     margin-top: 141px;
 }
 
