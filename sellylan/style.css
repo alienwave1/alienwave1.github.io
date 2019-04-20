@@ -9,7 +9,7 @@ html, body, h1 {
 }
 
 html {
-    height: 3700px;
+    height: 4000px;
 }
 
 .header {
@@ -19,7 +19,6 @@ html {
 }
 
 .imgs {
-    display: block;
     text-align: center;
     padding-top: 123px;
 }
@@ -46,6 +45,7 @@ html {
 .header-button {
     margin-top: 109px;
     text-align: center;
+    cursor: pointer;
 }
 
 .header-button-first {
@@ -59,6 +59,7 @@ html {
     font-size: 16px;
     font-family: 'Open Sans';
     text-transform: uppercase;
+    cursor: pointer;
     line-height: 2.844;
     margin-right: 15px;
 }
@@ -79,6 +80,7 @@ html {
     font-size: 16px;
     font-family: "Open Sans";
     text-transform: uppercase;
+    cursor: pointer;
     line-height: 2.844;
     margin-left: 15px;     
 }
@@ -89,7 +91,7 @@ html {
 
 .button-more {
     margin-top: 116px;
-    text-align: center;
+    left: 50%;
 }
 
 .header-button-more {
@@ -154,6 +156,7 @@ html {
     width: 29px;
     height: 29px;
     margin-top: 25px;
+    cursor: pointer;
 }
 
 .content-first-phone {
@@ -209,14 +212,14 @@ html {
     width: 29px;
     height: 29px;
     margin-top: 25px;
+    cursor: pointer;
 }
 
 /* Content h3 block */
 
 .content-third {
-    height: 500px;
     display: flex;
-	flex-direction: column;
+    flex-direction: column;
 }
 
 .content-third-text {
@@ -309,11 +312,76 @@ html {
 
 .content-third-next {
     margin: 0 auto;
+    margin-top: 142px;
     border-style: solid;
     border-width: 2px;
     border-color: rgb(22, 160, 133);
     border-radius: 50%;
     background-color: rgba(245, 245, 245, 0);
+    cursor: pointer;
     width: 29px;
     height: 29px;
+}
+
+/* Content signup */
+
+.content-signup {
+    margin-top: 216px;
+    background-color: rgb(44, 62, 80);
+    min-height: 439px;
+}
+
+.content-signup-title {
+    padding-top: 116px;
+    font-size: 36px;
+    font-family: "Open Sans";
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.content-signup-subtitle {
+    font-family: "Open Sans";
+    margin-top: 15px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.content-signup-form {
+    margin-top: 67px;
+    text-align: center;
+}
+
+.content-signup-input {
+    width: 490px;
+    height: 71px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: rgb(138, 138, 138);
+    font-size: 18px;
+    font-family: "Open Sans";
+    padding-left: 21px;
+}
+
+.content-signup-button {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(22, 160, 133);
+    box-shadow: inset 0px 3px 0px 0px rgba(59, 212, 182, 0.004);
+    cursor: pointer;
+    width: 204px;
+    height: 73px;
+    padding-top: 2px;
+}
+
+.content-signup-stripes {
+    width: 100%;
+    position: absolute;
+    margin-top: 87px;
 }
