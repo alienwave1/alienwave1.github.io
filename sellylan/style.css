@@ -43,6 +43,10 @@ html {
 }
 
 .header-button {
+    min-width: 494px;
+    max-width: 494px;
+    height: 72px;
+    margin: 0 auto;
     margin-top: 109px;
     text-align: center;
     cursor: pointer;
@@ -82,7 +86,7 @@ html {
     text-transform: uppercase;
     cursor: pointer;
     line-height: 2.844;
-    margin-left: 15px;     
+    margin-left: 15px;
 }
 
 .header-button-second:hover {

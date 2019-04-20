@@ -67,7 +67,7 @@ a:hover {
     float: right;
 }
 
-ul.navigation-list > li {
+.navigation-list > li {
     text-align: center;
     margin-left: 20px;
 }
