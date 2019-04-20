@@ -94,8 +94,8 @@ html {
 }
 
 .button-more {
-    margin-top: 116px;
-    left: 50%;
+    margin: 116px auto;
+    width: 44px;
 }
 
 .header-button-more {
