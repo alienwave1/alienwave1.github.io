@@ -172,11 +172,11 @@ html {
 .content-second {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .content-second-texts {
-    margin: auto 20px;
+    margin: auto 190px;
 }
 
 .content-second-text {
@@ -209,8 +209,4 @@ html {
     width: 29px;
     height: 29px;
     margin-top: 25px;
-}
-
-.content-second-phone {
-    margin: auto 175px;
 }
