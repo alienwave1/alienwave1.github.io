@@ -9,7 +9,7 @@ html, body, h1 {
 }
 
 html {
-    height: 3000px;
+    height: 3700px;
 }
 
 .header {
@@ -160,10 +160,10 @@ html {
     margin: auto 220px;
 }
 
-.shape1 {
+.line {
     margin: 150px auto;
     background-color: rgb(228, 232, 234);
-    width: 80%;
+    width: 75%;
     height: 2px;
 }
 
@@ -209,4 +209,111 @@ html {
     width: 29px;
     height: 29px;
     margin-top: 25px;
+}
+
+/* Content h3 block */
+
+.content-third {
+    height: 500px;
+    display: flex;
+	flex-direction: column;
+}
+
+.content-third-text {
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Open Sans';
+    color: rgb(96, 95, 95);
+    text-transform: uppercase;
+}
+
+/* Content h3 blocks */
+
+.content-third-blocks {
+	display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.content-third-block1 {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(225, 225, 225);
+    background-color: rgb(255, 255, 255);
+    width: 242px;
+    height: 242px;
+    margin: auto 70px;
+}
+
+.content-third-block2 {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(225, 225, 225);
+    background-color: rgb(255, 255, 255);
+    width: 242px;
+    height: 242px;
+    margin: auto 70px;
+}
+
+.content-third-block3 {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(225, 225, 225);
+    background-color: rgb(255, 255, 255);
+    width: 242px;
+    height: 242px;
+    margin: auto 70px;
+}
+
+.content-third-block1-img {
+    background-color: rgb(228, 232, 234);
+    width: 213px;
+    height: 213px;
+    margin: 6% auto;
+}
+
+.content-third-block2-img {
+    background-color: rgb(228, 232, 234);
+    width: 213px;
+    height: 213px;
+    margin: 6% auto;
+}
+
+.content-third-block3-img {
+    background-color: rgb(228, 232, 234);
+    width: 213px;
+    height: 213px;
+    margin: 6% auto;
+}
+
+/* Content h3 blocks texts */
+
+.content-third-block-text {
+    margin-top: 42px;
+    font-size: 24px;
+    color: rgb(54, 54, 54);
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Open Sans';
+}
+
+.content-third-block-subtext {
+    font-size: 14px;
+    color: rgb(138, 138, 138);
+    text-align: center;
+    font-family: 'Open Sans';
+    margin-top: 13px;
+}
+
+/* Content h3 button */
+
+.content-third-next {
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(22, 160, 133);
+    border-radius: 50%;
+    background-color: rgba(245, 245, 245, 0);
+    width: 29px;
+    height: 29px;
 }
