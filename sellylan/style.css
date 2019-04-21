@@ -3,7 +3,7 @@
     font-family: 'Open Sans';
 }
 
-@import url('https://meyerweb.com/eric/tools/css/reset/reset.css');
+@import url(./cssreset.css);
 
 html, body {
     margin: 0;
