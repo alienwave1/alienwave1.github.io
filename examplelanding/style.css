@@ -10,10 +10,6 @@ html, body {
     padding: 0;
 }
 
-html {
-    height: 4000px;
-}
-
 .header {
     background-color: rgb(44, 62, 80);
     min-height: 879px;
