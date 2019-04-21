@@ -3,7 +3,9 @@
     font-family: 'Open Sans';
 }
 
-html, body, h1 {
+@import url('https://meyerweb.com/eric/tools/css/reset/reset.css');
+
+html, body {
     margin: 0;
     padding: 0;
 }
@@ -110,7 +112,7 @@ html {
 }
 
 .header-stripes {
-    margin-top: 220px;
+    margin-top: 200px;
     width: 100%;
 }
 
