@@ -12,7 +12,6 @@ html, body {
 
 .header {
     background-color: rgb(44, 62, 80);
-    min-height: 879px;
     max-height: 879px;
 }
 
@@ -311,21 +310,6 @@ html, body {
     margin-top: 13px;
 }
 
-/* Content h3 button */
-
-.content-third-next {
-    margin: 0 auto;
-    margin-top: 142px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: rgb(22, 160, 133);
-    border-radius: 50%;
-    background-color: rgba(245, 245, 245, 0);
-    cursor: pointer;
-    width: 29px;
-    height: 29px;
-}
-
 /* Content signup */
 
 .content-signup {
@@ -387,4 +371,14 @@ html, body {
     width: 100%;
     position: absolute;
     margin-top: 87px;
+}
+
+@media screen and (max-width: 1440px) {
+    .header {
+        max-height: 800px;
+    }
+
+    .button-more {
+        margin: 60px auto;
+    }
 }

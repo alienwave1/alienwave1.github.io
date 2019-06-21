@@ -35,7 +35,6 @@
 
         function loadCookie() {
             kinput.value = getCookie('city') ? getCookie('city') : '';
-            console.log(getCookie('city'));
         }
 
         function getReq() {
@@ -63,7 +62,6 @@
             var key = "&appid=1ffca6db0ea908d8883ff72a55ebaf21";
             var metric = '&units=metric';
             var blocknum = city.replace(/^([^0-9]*)$/);
-            var geo = navigator.geolocation;
             var divresp = document.getElementById("response");
             var date = new Date();
 
@@ -81,8 +79,6 @@
                         var textParse;
 
                         if (data.sys) {
-                            console.log(data);
-                            
                             textParse = `<div>${date.getHours()}:${date.getMinutes()}</div>
                             <div>${data.weather[0].main}</div>
                             <div>${data.main.temp}&deg;</div> <div>${data.wind.speed} m/s</div>`;
@@ -154,6 +150,7 @@
             document.cookie = updatedCookie;
         }
 
+        /* This is XMLHttpRequest
         function stockApi() {
             var city = document.getElementById('city').value;
             var key = "1ffca6db0ea908d8883ff72a55ebaf21";
@@ -184,6 +181,7 @@
                 else return;
             }
         };
+        */
     </script>
 </body>
 
