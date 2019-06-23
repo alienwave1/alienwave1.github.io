@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;   
+    src: local('Karla'), local('Karla-Regular'), url(fonts/Karla-Regular.ttf) format('truetype');
+}
+
+html {
+    font-family: 'Karla';
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header {
+    width: 100%;
+}
+
+.header ul {
+    padding: 40px 50px 26px;
+    margin: 0;
+}
+
+.header li {
+    display: inline-block;
+}
+
+.name {
+    font-size: 32px;
+}
+
+.upload {
+    float: right;
+}
