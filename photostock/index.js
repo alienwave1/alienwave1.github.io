@@ -50,14 +50,16 @@ function checkFile() {
         let imgs = fs.readdirSync(imgsFolder);
 
         fs.statSync(imgsFolder);
-        return imgs.map(file => [file]);
+        return imgs;
 
-        // var imgs = fs.readdirSync(testFolder, (err, files) => {
+        // var imgs = fs.readdirSync(imgsFolder, (err, files) => {
         //     files.forEach((file) => {
         //         file = [file];
         //         return file;
         //     });
         // });
+
+        // return imgs;
     }
 
     catch (e) {
