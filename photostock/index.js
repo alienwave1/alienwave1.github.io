@@ -3,7 +3,6 @@ const app = express();
 const multer = require('multer');
 const fs = require('fs');
 const port = 5550;
-const testFolder = './images/';
 
 app.use(express.static(__dirname + "/")); // css file
 
@@ -17,29 +16,64 @@ var storage = multer.diskStorage({
     }
 });
 
-app.use(multer({ storage: storage }).single("filedata"));
+var fileFilter = (req, file, cb) => {
+    if (file.mimetype === "image/png" ||
+        file.mimetype === "image/jpg" ||
+        file.mimetype === "image/jpeg") {
+        cb(null, true);
+
+    }
+
+    else {
+        cb(null, false);
+        console.log(`Недопустимое расширение файла: ${file.mimetype}`);
+    }
+}
+
+app.use(multer({ storage: storage, fileFilter: fileFilter }).single("filedata"));
 
 app.post("/", function (req, res, next) {
     let filedata = req.file;
-    console.log(filedata);
+    let maxSize = 8388608; // 8388608 = 1 mb in bites
 
+    console.log(filedata);
     if (!filedata) res.send("Ошибка при загрузке файла!");
+
+    else if (filedata.size > maxSize) res.send("Недопустимый размер файла! Максимум 1 МБ");
 
     else res.send("Файл загружен");
 });
 
-var imgs = fs.readdirSync(testFolder, (err, files) => {
-    files.forEach((file) => {
-        file = [file];
-        return file;
-    });
-});
+function checkFile() {
+    try {
+        let imgsFolder = './images/';
+        let imgs = fs.readdirSync(imgsFolder);
+
+        fs.statSync(imgsFolder);
+        return imgs.map(file => [file]);
+
+        // var imgs = fs.readdirSync(testFolder, (err, files) => {
+        //     files.forEach((file) => {
+        //         file = [file];
+        //         return file;
+        //     });
+        // });
+    }
+
+    catch (e) {
+        console.log("Folder does not exist.");
+        fs.mkdirSync("images/");
+        console.log("Folder was created.");
+    }
+}
+
+checkFile();
 
 app.set("view engine", "ejs");
 
 app.use("/", function (req, res) {
     res.render("index", {
-        title: imgs,
+        title: checkFile(),
     });
 });
 

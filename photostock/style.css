@@ -19,12 +19,25 @@ ul {
     list-style-type: none;
 }
 
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    outline: none;
+}
+
 .header {
     width: 100%;
 }
 
 .header ul {
-    padding: 40px 50px 26px;
+    padding: 40px 50px 40px;
     margin: 0;
 }
 
@@ -39,6 +52,8 @@ ul {
 .upload {
     float: right;
 }
+
+/* Content */
 
 .projects {
     background-position: center center;
