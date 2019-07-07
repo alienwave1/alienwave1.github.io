@@ -39,3 +39,61 @@ ul {
 .upload {
     float: right;
 }
+
+.projects {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.projects div {
+    max-width: 600px;
+    max-height: 600px;
+    display: inline-block;
+}
+
+.brick {
+    float: left;
+}
+
+@media only screen and (min-width: 600px) {
+    .projects div {
+        width: 50%
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .projects div {
+        width: 33.3333%;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .projects div {
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 2400px) {
+    .projects div {
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 3000px) {
+    .projects div {
+        width: 16.6667%;
+    }
+}
+
+@media only screen and (min-width: 3600px) {
+    .projects div {
+        width: 14.2857%;
+    }
+}
+
+@media only screen and (min-width: 4200px) {
+    .projects div {
+        width: 12.5%;
+    }
+}

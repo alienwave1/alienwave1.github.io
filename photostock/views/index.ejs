@@ -27,7 +27,15 @@
 
 
     <div class="container">
-
+        <section class="centered">
+            <div class="projects">
+                <% for (var i = 0; i < title.length; i++) {%>
+                <div class="brick">
+                    <img src="images/<%= title[i] %>">
+                </div>
+                <%} %>
+            </div>
+        </section>
     </div>
 </body>
 
