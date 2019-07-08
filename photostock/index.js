@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const fs = require('fs');
-const port = 5550;
+const port = process.env.PORT || 5550;
 
 app.use(express.static(__dirname + "/")); // css file
 
@@ -34,14 +34,18 @@ app.use(multer({ storage: storage, fileFilter: fileFilter }).single("filedata"))
 
 app.post("/", function (req, res, next) {
     let filedata = req.file;
-    let maxSize = 8388608; // 8388608 = 1 mb in bites
+    //let maxSize = 8388608; // 8388608 = 1 mb in bites
 
     console.log(filedata);
+    res.redirect("/");
+
+    /*
     if (!filedata) res.send("Ошибка при загрузке файла!");
 
     else if (filedata.size > maxSize) res.send("Недопустимый размер файла! Максимум 1 МБ");
 
     else res.send("Файл загружен");
+    */
 });
 
 function checkFile() {
