@@ -53,6 +53,16 @@ a {
     float: right;
 }
 
+.submit-button {
+    font-size: 14px;
+    height: 32px;
+    color: #999;
+    background-color: #fff;
+    border: 1px solid #ddd;;
+    border-radius: 4px;
+    padding: 0 11px;
+}
+
 /* Content */
 
 .projects {

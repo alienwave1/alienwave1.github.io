@@ -5,6 +5,7 @@ const fs = require('fs');
 const port = process.env.PORT || 5550;
 
 app.use(express.static(__dirname + "/")); // css file
+app.use(express.static(__dirname + "/images"));
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
