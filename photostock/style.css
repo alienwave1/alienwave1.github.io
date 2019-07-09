@@ -32,6 +32,25 @@ a {
     outline: none;
 }
 
+p {
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+}
+
+input[type="submit"] {
+    transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+}
+
 .header {
     width: 100%;
 }
@@ -53,14 +72,50 @@ a {
     float: right;
 }
 
+.title {
+    font-family: 'Karla';
+    font-size: 14px;
+    width: 73px;
+    border: 1px solid #ddd;
+    color: #999;
+    background-color: #fff;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 7.5px 0px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.title:hover {
+    border-color: #989898;
+    color: #989898;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+}
+
+input[type="file"] {
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+}
+
 .submit-button {
     font-size: 14px;
     height: 32px;
     color: #999;
     background-color: #fff;
-    border: 1px solid #ddd;;
+    border: 1px solid #ddd;
     border-radius: 4px;
     padding: 0 11px;
+    float: right;
+    cursor: pointer;
+    font-family: 'Karla';
+}
+
+.submit-button:hover {
+    border-color: #989898;
+    color: #989898;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
 }
 
 /* Content */
@@ -69,6 +124,7 @@ a {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
 }
 
 .projects div {
@@ -83,42 +139,56 @@ a {
 
 @media only screen and (min-width: 600px) {
     .projects div {
-        width: 50%
+        width: 45%; /* was: 50% */
+        padding-left: 24px;
+        padding-top: 24px;
     }
 }
 
 @media only screen and (min-width: 1200px) {
     .projects div {
-        width: 33.3333%;
+        width: 30.9%; /* was: 33.3333% */
+        padding-left: 24px;
+        padding-top: 24px;
     }
 }
 
 @media only screen and (min-width: 1800px) {
     .projects div {
-        width: 25%;
+        width: 23.3%; /* was: 25% */
+        padding-left: 24px;
+        padding-top: 24px;
     }
 }
 
 @media only screen and (min-width: 2400px) {
     .projects div {
         width: 20%;
+        padding-left: 24px;
+        padding-top: 24px;
     }
 }
 
 @media only screen and (min-width: 3000px) {
     .projects div {
         width: 16.6667%;
+        padding-left: 24px;
+        padding-top: 24px;
     }
 }
 
 @media only screen and (min-width: 3600px) {
     .projects div {
         width: 14.2857%;
+        padding-left: 24px;
+        padding-top: 24px;        
     }
 }
 
 @media only screen and (min-width: 4200px) {
     .projects div {
         width: 12.5%;
+        padding-left: 24px;
+        padding-top: 24px;
     }
 }
