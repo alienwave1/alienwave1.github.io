@@ -15,11 +15,11 @@
             <li class="name"><a href="/">Photostock</a></li>
 
             <li class="upload">
-                <form enctype="multipart/form-data" method="post">
+                <form enctype="multipart/form-data" method="post" onsubmit="checkFile(event)">
                     <p style="width: 250px;">
                         <label class="label">
                             <span class="title">Add</span>
-                            <input type="file" name="filedata">
+                            <input type="file" name="filedata" id="uploadFile">
                         </label>
                         <input type="submit" value="Send file" class="submit-button">
                     </p>
@@ -39,6 +39,14 @@
             </div>
         </section>
     </div>
+
+    <script>
+        function checkFile(e) {
+            if (document.getElementById("uploadFile").files.length == 0) {
+                e.preventDefault();
+            }
+        }
+    </script>
 </body>
 
 </html>
