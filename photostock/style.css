@@ -49,6 +49,7 @@ input[type="submit"] {
     -moz-transition: all .2s linear;
     -webkit-transition: all .2s linear;
     -o-transition: all .2s linear;
+    outline: none;
 }
 
 .header {
@@ -136,8 +137,16 @@ input[type="file"] {
     float: left;
 }
 
+@media only screen and (max-width: 512px) {
+    .upload {
+        float: left;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
 @media only screen and (min-width: 600px) {
-    .projects div {
+       .projects div {
         width: 45%; /* was: 50% */
         padding-left: 24px;
         padding-top: 24px;

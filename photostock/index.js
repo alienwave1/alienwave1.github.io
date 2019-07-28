@@ -108,7 +108,7 @@ var fileFilter = (req, file, cb) => { // Также сделать провер�
 var upload = multer({
     storage: storage,
     fileFilter: fileFilter,
-    limits: { fileSize: 300000 }
+    limits: { fileSize: 600000 }
 }).single("filedata");
 
 app.post("/", upload, function (req, res, next) { // Обработка запроса

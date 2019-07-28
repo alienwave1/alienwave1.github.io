@@ -24,6 +24,8 @@
                         <input type="submit" value="Send file" class="submit-button">
                     </p>
                 </form>
+
+                <div style="margin-top: 15px;" id="fnf"></div>
             </li>
         </ul>
     </header>
@@ -42,9 +44,18 @@
 
     <script>
         function checkFile(e) {
+            var fileNf = document.getElementById("fnf");
+
             if (document.getElementById("uploadFile").files.length == 0) {
                 e.preventDefault();
+                fileNf.innerHTML = "File not found.";
             }
+
+            setTimeout(function() {
+                fileNf.innerHTML = "";
+            }, 1500);
+
+            
         }
     </script>
 </body>
