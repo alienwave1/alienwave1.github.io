@@ -26,6 +26,7 @@
                 </form>
 
                 <div style="margin-top: 15px;" id="fnf"></div>
+                <div style="margin-top: 15px;" id="uploadDiv"></div>
             </li>
         </ul>
     </header>
@@ -42,21 +43,33 @@
         </section>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script>
+        
+        var uploadDiv = document.getElementById("uploadDiv");
+
         function checkFile(e) {
             var fileNf = document.getElementById("fnf");
-
-            if (document.getElementById("uploadFile").files.length == 0) {
-                e.preventDefault();
-                fileNf.innerHTML = "File not found.";
-            }
-
-            setTimeout(function() {
-                fileNf.innerHTML = "";
-            }, 1500);
-
+            var uploadFile = document.getElementById("uploadFile");
             
+            if (uploadFile.files.length == 0) {
+                e.preventDefault();
+                
+                fileNf.innerHTML = "File not found.";
+
+                setTimeout(function() {
+                    fileNf.innerHTML = "";
+                }, 1500);
+            }
         }
+
+        $(document).ready(function() {
+            $('input[type="file"]').change(function() {
+                var value = $("input[type='file']").val();
+                $('#uploadDiv').text(value);
+            });
+        });
     </script>
 </body>
 
