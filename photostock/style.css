@@ -73,6 +73,14 @@ input[type="submit"] {
     float: right;
 }
 
+.crossBut {
+    margin-left: 8px;
+    border: none;
+    background-color: #fff;
+    font-size: 19px;
+    cursor: pointer;
+}
+
 .title {
     font-family: 'Karla';
     font-size: 14px;

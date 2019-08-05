@@ -49,19 +49,40 @@
         function checkFile(e) {
             if (uploadFile.files.length == 0) {
                 e.preventDefault();
-                
+
                 fileNf.innerHTML = "File not found.";
 
-                setTimeout(function() {
+                setTimeout(function () {
                     fileNf.innerHTML = "";
                 }, 1500);
             }
         }
 
-        uploadFile.addEventListener('change', function() {
+        uploadFile.addEventListener('change', function () {
             var filename = uploadFile.value.replace(/^.*\\/, "");
             fileNf.innerHTML = filename;
         });
+
+        function addCross() {
+            let cross = document.createElement("button"); // Создание кнопки "крестика"
+
+            uploadFile.addEventListener("change", function () { // Обработка добавления файла
+                if (uploadFile.files.length == 1) {
+                    cross.innerHTML = "✕";
+                    cross.className = "crossBut";
+                    fileNf.append(cross);
+                }
+
+                else cross.innerHTML = "";
+            })
+
+            cross.addEventListener("click", function () {
+                uploadFile.value = "";
+                fileNf.innerHTML = "";
+            })
+        }
+
+        addCross();
     </script>
 </body>
 
