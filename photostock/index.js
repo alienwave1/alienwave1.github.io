@@ -37,17 +37,12 @@ function hashFiles(cb) { // Хеширование файлов
 }
 
 function checkFile(cb) {
-    let sql = `SELECT hash FROM hashes`;
+    let sql = `SELECT 1 FROM hashes WHERE hash = "${cb}" LIMIT 1`;
 
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
-
-        rows.forEach((row) => {
-            console.log(row.hash);
-            cb(row.hash);
-        });
     });
 }
 
@@ -57,18 +52,6 @@ function checkFolder() { // Проверка на существующую па�
 
         fs.statSync(imgsFolder);
         return imgs; // Отправляет на клиента
-
-        /*
-        // Бессмысленный вариант
-        var imgs = fs.readdirSync(imgsFolder, (err, files) => {
-            files.forEach((file) => {
-                file = [file];
-                return file;
-            });
-        });
-
-        return imgs;
-        */
     }
 
     catch (e) {
@@ -118,7 +101,6 @@ app.post("/", upload, function (req, res, next) { // Обработка запр
     console.log(filedata);
     res.redirect("/");
 
-    /*
     hashFiles(cb => { // Если файл успешно загружен - хэш идёт в базу данных
         let hashesArr = [];
 
@@ -126,19 +108,25 @@ app.post("/", upload, function (req, res, next) { // Обработка запр
         console.log(hashesArr);
 
         let placeholders = hashesArr.map((hashesAr) => '(?)').join(',');
-        let sql = "INSERT INTO hashes(hash) VALUES " + placeholders;
-        console.log(sql);
+        let sql = `INSERT INTO hashes(hash) VALUES ` + placeholders;
+        let sqlCheck = `SELECT 1 FROM hashes WHERE hash = "${cb}" LIMIT 1`;
 
-        db.run(sql, hashesArr, function (err) { // Добавление хеша в БД
+        db.all(sqlCheck, [], (err, rows) => {
             if (err) {
-                return console.error(err.message);
+                throw err;
             }
 
-            console.log(`Rows inserted ${this.changes}`);
+            else if (rows.length == 0) {
+                db.run(sql, hashesArr, function (err) { // Добавление хеша в БД
+                    if (err) {
+                        return console.error(err.message);
+                    }
+
+                    console.log(`Rows inserted ${this.changes}`);
+                });
+            }
         });
     });
-    console.log("Файл загружен.");
-    */
 });
 
 app.use(function (err, req, res, next) { // Обработчик ошибки
@@ -148,7 +136,7 @@ app.use(function (err, req, res, next) { // Обработчик ошибки
     }
 
     // Handle any other errors
-})
+});
 
 /* -------- VIEW -------- */
 
@@ -162,6 +150,4 @@ app.use("/", function (req, res) {
 
 app.listen(port, function () {
     console.log(`Server started on port: ${port}`);
-
-    checkFile();
 });
