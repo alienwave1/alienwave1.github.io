@@ -35,17 +35,15 @@ var db = new sqlite3.Database('./db/db_main.db', sqlite3.OPEN_READWRITE | sqlite
 
 /* -------- FUNCTIONS -------- */
 
-function hashFiles(cb) { // Хеширование файлов
+function hashFiles(hash) { // Хеширование файлов
     let imgsFiles = fs.readdirSync(imgsFolder);
-
-    fs.statSync(imgsFolder);
 
     imgsFiles.forEach(arr => {
         fs.createReadStream(imgsFolder + arr)
             .pipe(crypto.createHash('md5').setEncoding('hex'))
             .on('finish', function () {
                 let hashes = this.read();
-                cb(hashes); // Отправка коллбека во внешний мир
+                hash(hashes); // Отправка коллбека во внешний мир
             });
     })
 }
@@ -75,19 +73,19 @@ var storage = multer.diskStorage({ // Download to folder /images
     },
 
     filename: function (req, file, cb) {
-        cb(null, file.originalname + Date.now()); // Format: file.jpg
+        cb(null, Date.now() + '.jpg'); // Format: file.jpg / Название файла = его хэш, сделать!
     }
 });
 
-var fileFilter = (req, file, cb) => { // Также сделать проверку, основанную на хэше.
-    let sqlCheck = `SELECT 1 FROM hashes LIMIT 1`;
+var fileFilter = (req, file, cb) => { // Сделать проверку на наличие хэша, чтобы не залить такое же фото
+    let sqlCheck = `SELECT 1 FROM hashes WHERE hash = "${cb}"`;
 
     db.all(sqlCheck, [], (err, rows) => {
         if (err) {
             throw err;
         }
 
-        else if (rows.length == 1) {
+        else if (rows.length == 0) {
             cb(null, false);
         }
     });
@@ -118,12 +116,12 @@ app.post("/", upload, function (req, res, next) { // Обработка запр
     console.log(filedata);
     res.redirect("/");
 
-    hashFiles(cb => { // Если файл успешно загружен - хэш идёт в базу данных
-        console.log(cb);
+    hashFiles(hash => { // Если файл успешно загружен - хэш идёт в базу данных
+        console.log(hash);
 
         //let placeholders = hashesArr.map((hashesAr) => '(?)').join(',');
         let sql = `INSERT INTO hashes(hash) VALUES(?)`;
-        let sqlCheck = `SELECT 1 FROM hashes WHERE hash = "${cb}" LIMIT 1`;
+        let sqlCheck = `SELECT 1 FROM hashes WHERE hash = "${hash}" LIMIT 1`;
 
         db.all(sqlCheck, [], (err, rows) => {
             if (err) {
@@ -131,7 +129,7 @@ app.post("/", upload, function (req, res, next) { // Обработка запр
             }
 
             else if (rows.length == 0) {
-                db.run(sql, cb, function (err) { // Добавление хеша в БД
+                db.run(sql, hash, function (err) { // Добавление хеша в БД
                     if (err) {
                         return console.error(err.message);
                     }
