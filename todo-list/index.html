@@ -12,33 +12,35 @@
 <body>
     <div class="container">
         <div class="title">Todo List</div>
-        <input type="text" placeholder="Enter task.." class="inputText">
-        <div class="tasks"></div>
+        <input type="text" placeholder="Enter task.." id="inputText">
+        <div id="tasks"></div>
     </div>
 </body>
 
 <script>
-    var inputText = document.getElementsByClassName("inputText")[0];
-    var tasks = document.getElementsByClassName("tasks")[0];
+    const inputText = document.getElementById("inputText");
+    const tasks = document.getElementById("tasks");
+    const taskArr = [];
 
-    inputText.addEventListener("keyup", function(event) {
+    Array.prototype.last = function last() {
+        return this[this.length - 1];
+    }
+
+    inputText.addEventListener("keyup", function (event) {
         if (event.keyCode == 13) {
-            var taskArr = [];
+            const newTask = document.createElement("div");
+
+            if (inputText.value == "") {
+                return;
+            }
 
             taskArr.push(inputText.value);
             inputText.value = "";
 
-            for (var i = 0; i < taskArr.length; i++) {
-                var newTask = document.createElement("div");
-                newTask.className = "task";
-
-                newTask.innerHTML = taskArr[i];
-                tasks.append(newTask);   
-            }
-
-            if (inputText.value == 0) {
-                tasks.removeChild(newTask);
-            }
+            newTask.className = "task";
+            newTask.innerHTML = taskArr.last();
+            
+            tasks.append(newTask);
         }
     })
 </script>
