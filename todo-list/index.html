@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Todo List</div>
+        <input type="text" placeholder="Enter task.." class="inputText">
+        <div class="tasks"></div>
+    </div>
+</body>
+
+<script>
+    var inputText = document.getElementsByClassName("inputText")[0];
+    var tasks = document.getElementsByClassName("tasks")[0];
+
+    inputText.addEventListener("keyup", function(event) {
+        if (event.keyCode == 13) {
+            var taskArr = [];
+
+            taskArr.push(inputText.value);
+            inputText.value = "";
+
+            for (var i = 0; i < taskArr.length; i++) {
+                var newTask = document.createElement("div");
+                newTask.className = "task";
+
+                newTask.innerHTML = taskArr[i];
+                tasks.append(newTask);   
+            }
+
+            if (inputText.value == 0) {
+                tasks.removeChild(newTask);
+            }
+        }
+    })
+</script>
+
+</html>
