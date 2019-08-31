@@ -73,7 +73,7 @@ var storage = multer.diskStorage({ // Download to folder /images
     },
 
     filename: function (req, file, cb) {
-        cb(null, Date.now() + '.jpg'); // Format: file.jpg / Название файла = его хэш, сделать! no
+        cb(null, Date.now() + '.jpg'); // Format: file.jpg / Название файла = его хэш, сделать!
     }
 });
 
