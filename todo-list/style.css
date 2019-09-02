@@ -7,9 +7,14 @@
 #inputText {
     display: block;
     margin: 30px auto;
-    font-size: 20px;
+    font-size: 25px;
     min-width: 550px;
     max-width: 550px;
+    -webkit-appearance: none;
+    appearance: none;
+    border: solid;
+    border-width: 1px;
+    padding: 15px;
 }
 
 #mainTasks {
@@ -22,17 +27,19 @@
 
 #tasks {
     float: left;
+    max-width: 475px;
+    overflow-x: hidden;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
 .task {
+    display: block;
     text-align: left;
     max-width: 475px;
-    font-size: 24px;
+    font-size: 25px;
     height: 40px;
     line-height: 40px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-    word-break: break-all;
 }
 
 #buttons {
@@ -42,7 +49,7 @@
 .crossBut {
     display: block;
     height: 40px;
-    font-size: 24px;
+    font-size: 25px;
     border: none;
     background: #fff;
     cursor: pointer;
