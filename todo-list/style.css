@@ -1,12 +1,15 @@
 .title {
-    font-size: 24px;
+    margin-top: 30px;
+    font-size: 30px;
     text-align: center;
 }
 
 #inputText {
     display: block;
     margin: 30px auto;
-    font-size: 14px;
+    font-size: 20px;
+    min-width: 550px;
+    max-width: 550px;
 }
 
 #mainTasks {
@@ -19,26 +22,26 @@
 
 #tasks {
     float: left;
-    padding-right: 15px;
-    padding-left: 15px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
 .task {
-    display: block;
     text-align: left;
-    margin-top: 10px;
+    max-width: 475px;
     font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    word-break: break-all;
 }
 
 #buttons {
-    display: inline-block;
-    margin-left: 20px;
+    float: right;
 }
 
 .crossBut {
     display: block;
-    margin-top: 10px;
+    height: 40px;
     font-size: 24px;
     border: none;
     background: #fff;
