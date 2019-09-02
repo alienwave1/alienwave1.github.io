@@ -1,12 +1,18 @@
 .title {
+    margin-top: 30px;
     font-size: 24px;
     text-align: center;
 }
 
 #inputText {
     display: block;
+    min-width: 550px;
     margin: 30px auto;
-    font-size: 14px;
+    font-size: 25px;
+    -webkit-appearance: none;
+    border: solid;
+    border-width: 1px;
+    padding: 15px;
 }
 
 #mainTasks {
@@ -19,8 +25,8 @@
 
 #tasks {
     float: left;
-    padding-right: 15px;
-    padding-left: 15px;
+    max-width: 475px;
+    overflow-x: hidden;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
@@ -32,7 +38,7 @@
 }
 
 #buttons {
-    display: inline-block;
+    float: right;
     margin-left: 20px;
 }
 
