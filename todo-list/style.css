@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap'); */
 
 body {
     background-color: #eeebeb;
@@ -30,41 +30,39 @@ body {
 }
 
 #mainTasks {
+    display: block;
     min-width: 550px;
     max-width: 550px;
-    display: block;
     margin: 0 auto;
-    text-align: center;
     color: #49423d;
 }
 
 #tasks {
-    float: left;
-    max-width: 475px;
+    min-width: 550px;
+    max-width: 550px;
     overflow-x: hidden;
     overflow: hidden;
     font-family: 'Comfortaa', sans-serif;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
+.blockDiv {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .task {
-    display: block;
-    text-align: left;
-    margin-top: 10px;
+    display: inline-block;
     font-size: 24px;
+    max-width: 475px;
     word-break: break-all;
 }
 
-#buttons {
-    float: right;
-    margin-left: 20px;
-}
-
 .crossBut {
-    display: block;
-    margin-top: 10px;
+    display: inline;
     font-size: 24px;
     border: none;
     background: #eeebeb;
     cursor: pointer;
+    vertical-align: top;
 }

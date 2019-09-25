@@ -17,8 +17,7 @@
         <input type="text" placeholder="Enter task.." id="inputText">
 
         <div id="mainTasks">
-            <div id="tasks"></div> 
-            <div id="buttons"></div>
+            <div id="tasks"></div>
         </div>
     </div>
 </body>
@@ -26,7 +25,7 @@
 <script>
     const inputText = document.getElementById("inputText");
     const tasks = document.getElementById("tasks");
-    const buttons = document.getElementById("buttons");
+    const mainTasks = document.getElementById("mainTasks");
     //const taskArr = [];
 
     Array.prototype.last = function last() { // возможно это понадобится
@@ -37,6 +36,7 @@
         if (event.keyCode == 13) {
             const newTask = document.createElement("div");
             const newCross = document.createElement("button");
+            const newDiv = document.createElement("div");
 
             if (inputText.value == "") {
                 return;
@@ -52,12 +52,15 @@
 
             inputText.value = "";
 
-            tasks.append(newTask);
-            buttons.append(newCross);
+            newDiv.className = "blockDiv";
+
+            newDiv.append(newTask);
+            newDiv.append(newCross);
+
+            tasks.append(newDiv);
 
             newCross.addEventListener("click", function () {
-                tasks.removeChild(newTask);
-                buttons.removeChild(newCross);
+                tasks.removeChild(newDiv);
             })
         }
     })
