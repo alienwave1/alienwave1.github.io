@@ -1161,6 +1161,7 @@
         ke = Math.abs,
         ye = new l;
     ye.version = pe;
+
     var xe = function (t) {
         function n(t) {
             o(this, n);
@@ -1809,6 +1810,7 @@ var noteArray = [
     [1864.7, "A6#"],
     [1975.5, "B6"]
 ];
+
 (function (d, e) {
     var t = d.createElement("script");
     t.type = "text/javascript", t.async = !0, t.src = e;
