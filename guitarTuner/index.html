@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <title>Online tuner</title>
+    <meta name="description" content="Online tuner. With your device.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Онлайн тюнер для настройки гитары</h1>
+    <div class="center textramka">
+        <p class="abzt">Включите микрофон нажав на кнопку "Включить" и начните настройку Вашей гитары.</p>
+
+        <script type="text/javascript" src="tuner.js"></script>
+
+        <div id="tramk" class="center">
+            <div id="tzad">
+                <canvas id="tunercanvas"></canvas>
+            </div>
+        </div>
+
+        <button class="tuneron" onclick="beginAudio(true);
+        $('.tuneron').remove();
+        try {
+            if (typeof gtag == 'function') {
+                gtag('event', 'on', { 'event_category' : 'tuner' });
+            }
+        } 
+            
+        catch (e) {
+
+        }">Включить</button>
+
+        <h2 id="zvuki">Стандартный строй 6-ти струнной гитары</h2>
+        <ul class="isnan">
+            <li>
+                <audio id="esound" loop>
+                    <source src="sounds/e.mp3" type="audio/mpeg">
+                </audio>
+
+                <span id="eplay"></span>
+
+                <span id="epause"></span>
+
+                <span class="soundlitext">
+                    1 струна - <b>E</b><sub>4</sub> (самая тонкая)
+                </span>
+            </li>
+
+            <li>
+                <audio id="bsound" loop>
+                    <source src="sounds/b.mp3" type="audio/mpeg">
+                </audio>
+
+                <span id="bplay"></span>
+
+                <span id="bpause"></span>
+
+                <span class="soundlitext">
+                    2 струна - <b>B</b><sub>3</sub>
+                </span>
+            </li>
+
+            <li>
+                <audio id="gsound" loop>
+                    <source src="sounds/g.mp3" type="audio/mpeg">
+                </audio>
+
+                <span id="gplay"></span>
+
+                <span id="gpause"></span>
+
+                <span class="soundlitext">
+                    3 струна - <b>G</b><sub>3</sub>
+                </span>
+            </li>
+
+            <li>
+                <audio id="dsound" loop>
+                    <source src="sounds/d.mp3" type="audio/mpeg">
+                </audio>
+
+                <span id="dplay"></span>
+
+                <span id="dpause"></span>
+
+                <span class="soundlitext">
+                    4 струна - <b>D</b><sub>3</sub>
+                </span>
+            </li>
+
+            <li>
+                <audio id="asound" loop>
+                    <source src="sounds/a.mp3" type="audio/mpeg">
+                </audio>
+                
+                <span id="aplay"></span>
+                
+                <span id="apause"></span>
+                
+                <span class="soundlitext">
+                    5 струна - <b>A</b><sub>2</sub>
+                </span>
+            </li>
+
+
+            <li>
+                <audio id="e6sound" loop>
+                    <source src="sounds/e2.mp3" type="audio/mpeg">
+                </audio>
+                
+                <span id="e6play"></span>
+                
+                <span id="e6pause"></span>
+                
+                <span class="soundlitext">
+                    6 струна - <b>E</b><sub>2</sub>
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script>
+        (function (d, e) {
+            var t = d.createElement("script");
+
+            t.type = "text/javascript", t.async = !0, t.src = e;
+
+            var n = d.getElementsByTagName("script")[0];
+
+            n.parentNode.insertBefore(t, n);
+        })(document, 'tuner.js');
+
+        /*function playsound(id, p) {
+            if (p) {
+                document.getElementById(id + 'sound').play();
+                $("#" + id + "pause").css({ "background-image": "url(/pauseactive.png)", "cursor": "pointer" });
+                $("#" + id + "play").css({ "background-image": "url(/playinactive.png)", "cursor": "default" });
+            }
+
+            else {
+                document.getElementById(id + 'sound').pause();
+                document.getElementById(id + 'sound').currentTime = 0;
+                $("#" + id + "pause").css({ "background-image": "url(/pauseinactive.png)", "cursor": "default" });
+                $("#" + id + "play").css({ "background-image": "url(/playactive.png)", "cursor": "pointer" });
+            }
+        }
+
+        $("#eplay").click(function () {
+            playsound('e', true)
+        });
+
+        $("#bplay").click(function () {
+            playsound('b', true)
+        });
+
+        $("#gplay").click(function () {
+            playsound('g', true)
+        });
+
+        $("#dplay").click(function () {
+            playsound('d', true)
+        });
+
+        $("#aplay").click(function () {
+            playsound('a', true)
+        });
+
+        $("#e6play").click(function () {
+            playsound('e6', true)
+        });
+
+        $("#epause").click(function () {
+            playsound('e', false)
+        });
+
+        $("#bpause").click(function () {
+            playsound('b', false)
+        });
+
+        $("#gpause").click(function () {
+            playsound('g', false)
+        });
+
+        $("#dpause").click(function () {
+            playsound('d', false)
+        });
+
+        $("#apause").click(function () {
+            playsound('a', false)
+        });
+
+        $("#e6pause").click(function () {
+            playsound('e6', false)
+        });
+        */
+    </script>
+</body>
+
+</html>
