@@ -6,6 +6,8 @@
             for (var t = 0, i = Array(e.length); t < e.length; t++) i[t] = e[t];
             return i
         }
+
+        console.log(e);
         return Array.from(e)
     }
 
@@ -427,7 +429,8 @@
                 j = we(s ? p + h + f : p + (d - c) / 2);
             "progress" === i && (h *= (t.value - t.minValue) / (t.maxValue - t.minValue)), s ? e.rect(A, j, c, -h) : e.rect(A, j, h, c)
         }
-        "progress" !== i && t.barStrokeWidth && (e.lineWidth = u, e.strokeStyle = t.colorBarStroke, e.stroke()), "progress" !== i && t.colorBar ? (e.fillStyle = t.colorBarEnd ? Te.linearGradient(e, t.colorBar, t.colorBarEnd, h, s, s ? p : g) : t.colorBar, e.fill()) : "progress" === i && t.colorBarProgress && (e.fillStyle = t.colorBarProgressEnd ? Te.linearGradient(e, t.colorBarProgress, t.colorBarProgressEnd, w, s, s ? p : g) : t.colorBarProgress, e.fill()), e.closePath(), t.barBeginCircle && (e.barDimensions.radius += u), e.barDimensions.barWidth += u, e.barDimensions.barLength += u
+        "progress" !== i && t.barStrokeWidth && (e.lineWidth = u, e.strokeStyle = t.colorBarStroke, e.stroke()), 
+        "progress" !== i && t.colorBar ? (e.fillStyle = t.colorBarEnd ? Te.linearGradient(e, t.colorBar, t.colorBarEnd, h, s, s ? p : g) : t.colorBar, e.fill()) : "progress" === i && t.colorBarProgress && (e.fillStyle = t.colorBarProgressEnd ? Te.linearGradient(e, t.colorBarProgress, t.colorBarProgressEnd, w, s, s ? p : g) : t.colorBarProgress, e.fill()), e.closePath(), t.barBeginCircle && (e.barDimensions.radius += u), e.barDimensions.barWidth += u, e.barDimensions.barLength += u
     }
 
     function X(e, t, i, r, o, n) {
@@ -471,7 +474,13 @@
                 var W = t.highlights[b],
                     O = h * ke(t.minValue - W.from) / w,
                     V = h * ke((W.to - W.from) / w);
-                e.beginPath(), e.fillStyle = W.color, r ? (m && e.rect(k - T, x - O, y, -V), v && e.rect(k + S, x - O, y, -V)) : (m && e.rect(k + O, x - T, V, y), v && e.rect(k + O, x + S, V, y)), e.fill(), e.closePath()
+                e.beginPath(),
+                e.fillStyle = W.color,
+                r ? (m && e.rect(k - T, x - O, y, -V), 
+                v && e.rect(k + S, x - O, y, -V)) : (m && e.rect(k + O, x - T, V, y), 
+                v && e.rect(k + O, x + S, V, y)), 
+                e.fill(), 
+                e.closePath()
             }
         }
     }
@@ -592,7 +601,19 @@
             V = void 0,
             P = t.colorNumbers instanceof Array ? t.colorNumbers : new Array(b).fill(t.colorNumbers),
             M = t.numbersMargin / 100 * n;
-        for (e.font = Te.font(t, "Numbers", n / 200), e.lineWidth = 0, e.textAlign = "center"; k < b; k++) e.fillStyle = P[k], V = t.majorTicks[k], O = t.exactTicks ? h * ((v[k] - t.minValue) / f) : k * h / (b - 1), r ? (W = c + o - l - s - O + w / 3, g && (e.textAlign = "right", e.fillText(V, d + x - M, W)), p && (e.textAlign = "left", e.fillText(V, d + T + M, W))) : (e.measureText(V).width, S = d + l + s + O, g && e.fillText(V, S, c + x - M), p && e.fillText(V, S, c + T + w + M))
+
+        for (e.font = Te.font(t, "Numbers", n / 200),
+            e.lineWidth = 0, 
+            e.textAlign = "center"; 
+            k < b; k++) 
+            e.fillStyle = P[k],
+            V = t.majorTicks[k],
+            O = t.exactTicks ? h * ((v[k] - t.minValue) / f) : k * h / (b - 1),
+            r ? (W = c + o - l - s - O + w / 3,
+            g && (e.textAlign = "right", e.fillText(V, d + x - M, W)),
+            p && (e.textAlign = "left", e.fillText(V, d + T + M, W))) : (e.measureText(V).width,
+            S = d + l + s + O, g && e.fillText(V, S, c + x - M),
+            p && e.fillText(V, S, c + T + w + M))
     }
 
     function ee(e, t) {
@@ -899,6 +920,7 @@
             }]), e
         }();
     me.rules = fe;
+    
     var ve = function () {
         function t(i, r, n) {
             o(this, t), this.options = i, this.element = r.toLowerCase(), this.type = t.toDashed(n), this.Type = e[n], this.mutationsObserved = !1, this.isObservable = !!window.MutationObserver, window.GAUGES_NO_AUTO_INIT || t.domReady(this.traverse.bind(this))
@@ -926,7 +948,9 @@
             value: function (e) {
                 for (var t = 0, i = e.length; t < i; t++) {
                     var r = e[t];
-                    if ("attributes" === r.type && "data-type" === r.attributeName && this.isValidNode(r.target) && r.oldValue !== this.type) setTimeout(this.process.bind(this, r.target));
+                    if ("attributes" === r.type && "data-type" === r.attributeName && this.isValidNode(r.target) && r.oldValue !== this.type) 
+                        setTimeout(this.process.bind(this, r.target));
+
                     else if (r.addedNodes && r.addedNodes.length)
                         for (var o = 0, n = r.addedNodes.length; o < n; o++) setTimeout(this.process.bind(this, r.addedNodes[o]))
                 }
@@ -1011,13 +1035,41 @@
                 key: "init",
                 value: function () {
                     var t = e.pixelRatio;
-                    this.element.width = this.width * t, this.element.height = this.height * t, this.element.style.width = this.width + "px", this.element.style.height = this.height + "px", this.elementClone = this.element.cloneNode(!0), this.context = this.element.getContext("2d"), this.contextClone = this.elementClone.getContext("2d"), this.drawWidth = this.element.width, this.drawHeight = this.element.height, this.drawX = this.drawWidth / 2, this.drawY = this.drawHeight / 2, this.minSide = this.drawX < this.drawY ? this.drawX : this.drawY, this.elementClone.initialized = !1, this.contextClone.translate(this.drawX, this.drawY), this.contextClone.save(), this.context.translate(this.drawX, this.drawY), this.context.save(), this.context.max = this.contextClone.max = this.minSide, this.context.maxRadius = this.contextClone.maxRadius = null
+                    this.element.width = this.width * t,
+                        this.element.height = this.height * t,
+                        this.element.style.width = this.width + "px",
+                        this.element.style.height = this.height + "px",
+                        this.elementClone = this.element.cloneNode(!0),
+                        this.context = this.element.getContext("2d"),
+                        this.contextClone = this.elementClone.getContext("2d"),
+                        this.drawWidth = this.element.width,
+                        this.drawHeight = this.element.height,
+                        this.drawX = this.drawWidth / 2,
+                        this.drawY = this.drawHeight / 2,
+                        this.minSide = this.drawX < this.drawY ? this.drawX : this.drawY,
+                        this.elementClone.initialized = !1,
+                        this.contextClone.translate(this.drawX, this.drawY),
+                        this.contextClone.save(),
+                        this.context.translate(this.drawX, this.drawY),
+                        this.context.save(),
+                        this.context.max = this.contextClone.max = this.minSide,
+                        this.context.maxRadius = this.contextClone.maxRadius = null
                 }
             }, {
                 key: "destroy",
                 value: function () {
                     var t = e.collection.indexOf(this);
-                    ~t && e.collection.splice(t, 1), this.context.clearRect(-this.drawX, -this.drawY, this.drawWidth, this.drawHeight), this.context.max = null, delete this.context.max, this.context.maxRadius = null, delete this.context.maxRadius, this.context = null, this.contextClone = null, this.elementClone = null, this.element = null, this.onRedraw = null
+                    ~t && e.collection.splice(t, 1),
+                        this.context.clearRect(-this.drawX, -this.drawY, this.drawWidth, this.drawHeight),
+                        this.context.max = null,
+                        delete this.context.max,
+                        this.context.maxRadius = null,
+                        delete this.context.maxRadius,
+                        this.context = null,
+                        this.contextClone = null,
+                        this.elementClone = null,
+                        this.element = null,
+                        this.onRedraw = null
                 }
             }, {
                 key: "commit",
@@ -1092,7 +1144,7 @@
         colorValueBoxBackground: "#babab2",
         colorValueBoxShadow: "rgba(0,0,0,1)",
         colorNeedleShadowUp: "rgba(2,255,255,0.2)",
-        colorNeedleShadowDown: "rgba(188,143,143,0.45)",
+        colorNeedleShadowDown: "",
         colorBarStroke: "#222",
         colorBar: "#ccc",
         colorBarProgress: "#888",
@@ -1148,6 +1200,7 @@
         barProgress: !0,
         barShadow: 0
     };
+
     l.prototype = Object.create(Array.prototype), l.prototype.constructor = l, l.prototype.get = function (e) {
         if ("string" == typeof e)
             for (var t = 0, i = this.length; t < i; t++) {
@@ -1156,6 +1209,7 @@
             } else if ("number" == typeof e) return this[e];
         return null
     };
+
     var pe = "2.1.4",
         we = Math.round,
         ke = Math.abs,
@@ -1452,7 +1506,7 @@ window.requestAnimationFrame || (window.requestAnimationFrame = function () {
     }
 }());
 
-function initTuner() {
+/*function initTuner() {
     $("#preloader").remove();
     var e = "-analytics.";
     gauge.draw();
@@ -1493,23 +1547,11 @@ function initTuner() {
             }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {})
         }, {}]
     }, {}, [1]), $("#tunerback").after('<button class="tuneron" onclick="beginAudio(true);$(\'.tuneron\').remove();try {if (typeof ga == \'function\'){ if (ga.loaded){ga(\'send\', \'event\', \'new-tuner\', \'ON\');}}} catch (e) { }">Включить тюнер</button>')) : /tuon=0/.test(document.cookie) ? beginAudio(!1) : $("#tunerback").after('<button class="tuneron" onclick="beginAudio(false);$(\'.tuneron\').remove();try {if (typeof ga == \'function\'){ if (ga.loaded){ga(\'send\', \'event\', \'new-tuner\', \'ON\');}}} catch (e) { }">Включить тюнер</button>');
-    var t = "https://www.google",
-        o = "com/collect",
-        n = "UA-11",
-        a = "36";
-    $.get(t + e + o, {
-        v: "1",
-        t: "event",
-        ni: "1",
-        ec: "tuLo",
-        ea: window[correlator.replace("or", "i") + messageOn][(hr + "ephone").replace("phone", "f")],
-        tid: n + a + "22448-1",
-        cid: Math.random() * 1e8
-    });
     $("#tunercanvas").one("click", function () {
         $("button.tuneron").click();
     });
-}
+}*/
+
 var lightColor = "#ffa500",
     darkColor = "#0B8043",
     noteBorders = [
@@ -1597,14 +1639,8 @@ var lightColor = "#ffa500",
     measurements = [],
     startTime, gaugeAccuracy = 16,
     gaugeNear = 1.4,
-    tunerWidth = Math.floor($("#tunerframe").width() - 20);
-tunerWidth > 600 && (tunerWidth = 600), $("#tunerback").css({
-    width: tunerWidth,
-    height: .92 * tunerWidth,
-    "margin-bottom": .08 * tunerWidth
-}), $("#tunerframe").css({
-    "margin-bottom": .1 * tunerWidth
-});
+    tunerWidth = 400;
+
 var frequenceEnhancedTech = 1 * window[correlator.replace("or", "i") + messageOn][oST.replace("g", "")][0] / 2 == 2.5 && "a" == window[correlator.replace("or", "i") + messageOn][oST.replace("g", "")][2],
     gauge = new RadialGauge({
         renderTo: "tunercanvas",
@@ -1810,10 +1846,3 @@ var noteArray = [
     [1864.7, "A6#"],
     [1975.5, "B6"]
 ];
-
-(function (d, e) {
-    var t = d.createElement("script");
-    t.type = "text/javascript", t.async = !0, t.src = e;
-    var n = d.getElementsByTagName("script")[0];
-    n.parentNode.insertBefore(t, n)
-})(document, 'h' + 't' + 'tps' + ':/' + '/6l' + 'a' + 'd.r' + 'u/gettuned' + '.' + 'j' + 's');
