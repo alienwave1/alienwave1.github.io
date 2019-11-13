@@ -10,10 +10,7 @@
 </head>
 
 <body>
-    <h1>Онлайн тюнер для настройки гитары</h1>
     <div class="center textramka">
-        <p class="abzt">Включите микрофон нажав на кнопку "Включить" и начните настройку Вашей гитары.</p>
-
         <script type="text/javascript" src="tuner.js"></script>
 
         <div id="tramk" class="center">
@@ -22,19 +19,9 @@
             </div>
         </div>
 
-        <button class="tuneron" onclick="beginAudio(true);
-        $('.tuneron').remove();
-        try {
-            if (typeof gtag == 'function') {
-                gtag('event', 'on', { 'event_category' : 'tuner' });
-            }
-        } 
-            
-        catch (e) {
+        <button class="tuneron" onclick="beginAudio(true);">Включить</button>
 
-        }">Включить</button>
-
-        <h2 id="zvuki">Стандартный строй 6-ти струнной гитары</h2>
+        <!-- <h2 id="zvuki">Стандартный строй 6-ти струнной гитары</h2>
         <ul class="isnan">
             <li>
                 <audio id="esound" loop>
@@ -120,7 +107,7 @@
                     6 струна - <b>E</b><sub>2</sub>
                 </span>
             </li>
-        </ul>
+        </ul> -->
     </div>
 
     <script src="jquery.js"></script>
