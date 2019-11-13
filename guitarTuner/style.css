@@ -45,22 +45,27 @@ div.ya-share2 {
 	padding-left: 10px;
 }
 
-#tramk {
-	max-width: 520px;
-	margin-top: 10px;
-	margin-bottom: 30px;
-}
-
 #tzad {
 	border: 1px solid #cbcbcb;
 	border-radius: 5px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 10px;
 	min-height: 276px;
 	max-width: 500px;
 	background-color: #fff;
 	cursor: pointer;
+}
+
+#tramk {
+	max-width: 520px;
+	margin-top: 10px;
+}
+
+.guitar-neck {
+	margin: 0 auto;
+	max-width: 520px;
+	height: 400px;
+	background: brown;
 }
 
 .tuneron {
@@ -95,11 +100,6 @@ ul.isnan li {
 	background: none;
 	padding: 0 0 10px 2px;
 	list-style: none;
-}
-
-p.abzt {
-	font-size: 18px;
-	line-height: 1.5;
 }
 
 #eplay,
