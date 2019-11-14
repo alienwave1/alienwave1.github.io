@@ -1,51 +1,64 @@
 const cityInput = document.getElementById("cityInput");
 
-cityInput.addEventListener("keydown", function(event) {
+cityInput.addEventListener("keydown", function (event) {
     if (event.code === "Enter") {
-        fetchApi();
+        getWeather();
     }
 })
 
 function loadCookie() {
-    kinput.value = getCookie('city') ? getCookie('city') : '';
+    cityInput.value = getCookie('city') ? getCookie('city') : '';
 }
 
 function getReq() {
     if (getCookie('city')) {
-        fetchApi();
+        getWeather();
     }
 }
 
 loadCookie();
 getReq();
 
-function fetchApi() {
-    var city = cityInput.value;
-    var key = "&appid=1ffca6db0ea908d8883ff72a55ebaf21";
-    var metric = '&units=metric';
-    var blockNumbers = city.replace(/^([^0-9]*)$/);
-    var divresp = document.getElementById("response");
-    var date = new Date();
+function getWeather() {
+    const CITY = cityInput.value;
+    const key = "&appid=1ffca6db0ea908d8883ff72a55ebaf21";
+    const metric = '&units=metric';
+    const blockNumbers = CITY.replace(/^([^0-9]*)$/);
+    const weatherBlock = document.getElementById("weatherBlock");
+    const date = new Date();
 
-    setCookie('city', city);
+    setCookie('city', CITY);
 
-    if (city == 0 || city == blocknum) {
-        return divresp.innerHTML = "";
+    if (CITY == 0 || CITY == blockNumbers) {
+        return weatherBlock.innerHTML = "";
     }
 
     else {
-        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + key + metric)
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + key + metric)
             .then(response => response.json())
 
             .then(data => {
                 var textParse;
 
                 if (data.sys) {
-                    textParse = `<div>${date.getHours()}:${date.getMinutes()}</div>
-                    <div>${data.weather[0].main}</div>
-                    <div>${data.main.temp}&deg;</div> <div>${data.wind.speed} m/s</div>`;
+                    textParse =
+                        `<div class="weatherTemperature">
+                            ${data.main.temp.toFixed(0)}&deg; <!-- Temperature -->
+                        </div>
 
-                    divresp.innerHTML = textParse;
+                        <div class="weatherCondition">
+                            ${data.weather[0].main} <!-- Weather Condition -->
+                        </div>
+
+                        <div>
+                            ${date.getHours()}:${date.getMinutes()}
+                        </div>
+
+                        <div>
+                            ${data.wind.speed} m/s
+                        </div>`;
+
+                    weatherBlock.innerHTML = textParse;
                 }
 
                 else {
@@ -53,12 +66,12 @@ function fetchApi() {
                         case '400':
                             textParse = `<div>Bad request</div>`;
 
-                            divresp.innerHTML = textParse;
+                            weatherBlock.innerHTML = textParse;
                             break;
 
                         case '404':
                             textParse = `<div>Sorry, there is no such city in our database</div>`;
-                            divresp.innerHTML = textParse;
+                            weatherBlock.innerHTML = textParse;
                             break;
 
                         default:
