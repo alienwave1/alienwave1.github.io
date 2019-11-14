@@ -1,9 +1,10 @@
-var kinput = document.getElementsByClassName('main-input')[0];
+const cityInput = document.getElementById("cityInput");
 
-function mySubmit(e) {
-    e.preventDefault();
-    fetchApi();
-}
+cityInput.addEventListener("keydown", function(event) {
+    if (event.code === "Enter") {
+        fetchApi();
+    }
+})
 
 function loadCookie() {
     kinput.value = getCookie('city') ? getCookie('city') : '';
@@ -17,13 +18,12 @@ function getReq() {
 
 loadCookie();
 getReq();
-setColor();
 
 function fetchApi() {
-    var city = kinput.value;
+    var city = cityInput.value;
     var key = "&appid=1ffca6db0ea908d8883ff72a55ebaf21";
     var metric = '&units=metric';
-    var blocknum = city.replace(/^([^0-9]*)$/);
+    var blockNumbers = city.replace(/^([^0-9]*)$/);
     var divresp = document.getElementById("response");
     var date = new Date();
 

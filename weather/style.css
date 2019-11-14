@@ -3,10 +3,6 @@
     src: url(fonts/OpenSans-Light.ttf);
 }
 
-html, body {
-    height: 100%;
-}
-
 body {
     margin: 0;
 }
@@ -28,17 +24,48 @@ button {
     height: 600px;
 }
 
+/* City search, show info about weather */
+
 .up-block {
     min-height: 50%;
-    background-color: #432C85;
+    /* background-color: #432C85; */
+    background: linear-gradient(to top, #9776E4, #2E1D65);
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -0.5rem 2rem rgba(0, 0, 255, 0.2);
+    /* box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1); */
 }
 
+.cityInputBlock {
+    float: right;
+    margin-top: 70px;
+    margin-right: 70px;
+}
+
+#cityInput {
+    text-align: center;
+    max-width: 120px;
+    border: none;
+    background-color: inherit;
+    color: #fff;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.cityInputLine {
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 50px;
+    border: solid;
+    border-width: 2px;
+    border-color: #fff;
+    border-radius: 20px;
+}
+
+/* Other */
 .down-block {
     min-height: 50%;
     border-radius: 0 0 20px 20px;
-    /* background: #fff; */
     box-shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
 }
 
@@ -46,3 +73,10 @@ button {
     -moz-transition: all .3s linear;
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear; */
+
+@media screen and (max-width: 1440px) {
+    .app {
+        margin-top: 75px;
+        max-width: 950px;
+    }
+}
