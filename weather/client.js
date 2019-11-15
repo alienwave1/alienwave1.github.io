@@ -50,13 +50,13 @@ function getWeather() {
                             ${data.weather[0].main} <!-- Weather Condition -->
                         </div>
 
-                        <div>
-                            ${date.getHours()}:${date.getMinutes()}
+                        <div сlass="weatherWind">
+                            ${data.wind.speed} m/s
                         </div>
 
-                        <div>
-                            ${data.wind.speed} m/s
-                        </div>`;
+                        <!-- <div>
+                            ${date.getHours()}:${date.getMinutes()}
+                        </div> -->`;
 
                     weatherBlock.innerHTML = textParse;
                 }

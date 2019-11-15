@@ -29,6 +29,8 @@ button {
 /* City search, show info about weather */
 
 .up-block {
+    display: flex;
+    justify-content: space-between;
     min-height: 50%;
     /* background-color: #432C85; */
     background: linear-gradient(to top, rgb(141, 103, 228), #2E1D65);
@@ -39,7 +41,6 @@ button {
 }
 
 #weatherBlock {
-    float: left;
     max-width: 500px;
     margin-left: 150px;
     margin-top: 45px;
@@ -61,8 +62,13 @@ button {
     letter-spacing: 5px;
 }
 
+.weatherWind {
+    max-width: 30px;
+}
+
+/* Input */
+
 .cityInputBlock {
-    float: right;
     margin-top: 70px;
     margin-right: 70px;
 }
@@ -105,5 +111,13 @@ button {
     .app {
         margin-top: 75px;
         max-width: 950px;
+    }
+
+    .weatherTemperature {
+        font-size: 130px;
+    }
+
+    .weatherCondition {
+        margin-left: 0px;
     }
 }
