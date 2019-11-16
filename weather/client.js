@@ -42,20 +42,20 @@ function getWeather() {
 
                 if (data.sys) {
                     textParse =
-                        `<div style="width: 400px;">
-                        <div class="weatherTemperature">
-                            ${data.main.temp.toFixed(0)}&deg; <!-- Temperature -->
-                        </div>
+                        `<div style="width: 418px;">
+                            <div class="weatherTemperature">
+                                ${data.main.temp.toFixed(0)}&deg; <!-- Temperature -->
+                            </div>
 
-                        <div class="weatherCondition">
-                            ${data.weather[0].main} <!-- Weather Condition -->
-                        </div>
+                            <div class="weatherCondition">
+                                ${data.weather[0].main} <!-- Weather Condition -->
+                            </div>
                         </div>
 
                         <div class="weatherExtraData">
                             <div class="weatherHumidity">
-                                <div style="text-align: center;">HUMIDITY</div>
-                                <div style="text-align: center">${data.main.humidity}%</div>
+                                <div style="text-align: center; font-size: 15px; letter-spacing: 2px;">HUMIDITY</div>
+                                <div style="text-align: center; margin-top: 7px;">${data.main.humidity}%</div>
                             </div>
 
                             <div style="height: 50px; border: solid; 
@@ -63,8 +63,8 @@ function getWeather() {
                                 color: #ddd8e9; opacity: 0.5;"></div>
 
                             <div class="weatherWind">
-                                <div style="font-size: 15px; text-align: center;">WIND</div>
-                                <div style="text-align: center;">${data.wind.speed.toFixed(0)} M/S</div>
+                                <div style="font-size: 15px; text-align: center; letter-spacing: 2px;">WIND</div>
+                                <div style="text-align: center; margin-top: 7px;">${data.wind.speed.toFixed(0)} M/S</div>
                             </div>
                         </div>
 
