@@ -42,16 +42,30 @@ function getWeather() {
 
                 if (data.sys) {
                     textParse =
-                        `<div class="weatherTemperature">
+                        `<div style="width: 400px;">
+                        <div class="weatherTemperature">
                             ${data.main.temp.toFixed(0)}&deg; <!-- Temperature -->
                         </div>
 
                         <div class="weatherCondition">
                             ${data.weather[0].main} <!-- Weather Condition -->
                         </div>
+                        </div>
 
-                        <div сlass="weatherWind">
-                            ${data.wind.speed} m/s
+                        <div class="weatherExtraData">
+                            <div class="weatherHumidity">
+                                <div style="text-align: center;">HUMIDITY</div>
+                                <div style="text-align: center">${data.main.humidity}%</div>
+                            </div>
+
+                            <div style="height: 50px; border: solid; 
+                                border-width: 0.5px; border-radius: 20px; 
+                                color: #ddd8e9; opacity: 0.5;"></div>
+
+                            <div class="weatherWind">
+                                <div style="font-size: 15px; text-align: center;">WIND</div>
+                                <div style="text-align: center;">${data.wind.speed.toFixed(0)} M/S</div>
+                            </div>
                         </div>
 
                         <!-- <div>
