@@ -44,7 +44,6 @@ button {
 
 .weatherTemperature {
     text-align: center;
-    margin: 0 auto;
     color: #fff;
     font-size: 140px;
     font-family: 'Nunito', sans-serif;
@@ -126,11 +125,12 @@ button {
 
 @media screen and (max-width: 1440px) {
     .app {
-        margin-top: 75px;
+        margin-top: 60px;
         max-width: 950px;
+        max-height: 650px;
     }
 
     .weatherTemperature {
-        font-size: 130px;
+        font-size: 120px;
     }
 }

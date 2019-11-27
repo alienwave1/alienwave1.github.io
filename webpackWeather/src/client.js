@@ -46,7 +46,7 @@ function getWeather() {
                     textParse =
                         `<div style="width: 418px;">
                             <div class="weatherTemperature">
-                                ${data.main.temp.toFixed(0)}&deg; <!-- Temperature -->
+                                ${data.main.temp.toFixed(0)}&deg <!-- Temperature -->
                             </div>
 
                             <div class="weatherCondition">
