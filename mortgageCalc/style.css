@@ -1,0 +1,31 @@
+input {
+    outline: none;
+}
+
+.header {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 40px;
+}
+
+/* Данные ввода */
+
+.input-data {
+    text-align: center;
+    margin-top: 70px;
+}
+
+/* Стоимость жилья */
+.cost-text {
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.cost-input {
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Первоначальный взнос */
+
+/* Ежемесячный доход */
